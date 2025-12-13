@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 묻는 질문 (FAQ) | Momentum Biz</title>
+    <meta name="description" content="Momentum Biz 서비스에 대한 자주 묻는 질문과 답변. 경영컨설팅, EAP, 단체보험, 전기요금 절감 등 궁금한 점을 확인하세요.">
+    <meta name="keywords" content="경영컨설팅 FAQ, EAP 자주묻는질문, 단체보험 문의, 전기요금절감 질문">
+
+    <!-- Naver Search Advisor -->
+    <meta name="naver-site-verification" content="d3e32aeb38f8ddff0601c05bf14f86030d57f024" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="자주 묻는 질문 (FAQ) | Momentum Biz">
+    <meta property="og:description" content="Momentum Biz 서비스에 대한 자주 묻는 질문과 답변">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mmtum.co.kr/faq.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer.open { max-height: 500px; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-icon.open { transform: rotate(180deg); }
+    </style>
+
+    <!-- Schema.org FAQ 구조화 데이터 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "스타트업 법인설립 비용은 얼마인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "법인설립 비용은 자본금 규모와 설립 형태에 따라 달라집니다. 일반적으로 등록면허세, 교육세, 법원 수수료 등 공과금이 약 30-50만원 정도 소요되며, 컨설팅 비용은 별도입니다. Momentum Biz에서는 초기 상담을 통해 정확한 견적을 무료로 제공해드립니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "정부지원사업 신청 자격 조건은 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "정부지원사업마다 자격 조건이 다릅니다. 일반적으로 창업 7년 이내 기업, 중소기업 기준 충족, 세금 체납 없음 등이 기본 조건입니다. 업종, 매출액, 고용 인원 등에 따라 지원 가능한 사업이 달라지므로, 무료 상담을 통해 귀사에 맞는 지원사업을 매칭해드립니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "EAP 서비스란 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "EAP(Employee Assistance Program)는 직원지원프로그램으로, 직원들의 정신건강, 스트레스 관리, 재무 상담, 법률 상담 등을 지원하는 복지 프로그램입니다. 직원 만족도 향상, 이직률 감소, 생산성 향상 등의 효과가 있으며, 기업 규모와 필요에 맞게 맞춤형으로 제공됩니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "EAP 도입 시 직원 수 제한이 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "직원 수 제한은 없습니다. 10인 미만 소규모 기업부터 대기업까지 모든 규모의 기업에서 도입 가능합니다. 직원 수에 따라 프로그램 구성과 비용이 달라지며, 소규모 기업을 위한 경제적인 패키지도 준비되어 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "EAP 도입 효과는 어느 정도인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "EAP 도입 기업 평균 데이터 기준, 직원 스트레스 약 30% 감소, 이직률 약 25% 감소, 생산성 약 20% 향상 효과가 있습니다. 투자 대비 효과(ROI)는 평균 3:1로, 1원 투자 시 3원의 효과가 있는 것으로 나타납니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "단체보험 가입 시 최소 인원 조건이 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "보험사마다 다르지만, 일반적으로 5인 이상부터 단체보험 가입이 가능합니다. 5인 미만 기업의 경우에도 중소기업 전용 상품이나 협회 단체보험 등 대안을 찾아드릴 수 있으니 상담해주세요."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "단체보험 보장 범위는 어떻게 되나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "단체보험은 상해(최대 5,000만원), 장애(최대 1억원), 사망(최대 2억원) 등을 보장합니다. 업무상 재해뿐 아니라 일반 상해도 보장되며, 입원비, 수술비, 재활치료비 등도 포함됩니다. 기업 상황에 맞게 보장 범위와 한도를 조정할 수 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "ISO45001 인증이란 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ISO45001은 국제표준화기구(ISO)에서 제정한 안전보건경영시스템 국제 표준입니다. 기업의 산업재해 예방과 안전한 작업환경 조성을 위한 체계적인 관리 시스템을 구축했음을 인증받는 것입니다. 대기업 납품, 공공기관 입찰 시 가산점 혜택이 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "ISO45001 인증 취득까지 얼마나 걸리나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "기업 규모와 현재 안전관리 수준에 따라 다르지만, 일반적으로 3-6개월 정도 소요됩니다. 컨설팅을 통해 현황 진단, 문서화 시스템 구축, 내부심사원 교육, 인증심사 대응까지 전 과정을 지원해드립니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "전기요금 절감 효과는 얼마나 되나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "사업장 특성에 따라 다르지만, 평균적으로 15-30%의 전기요금 절감 효과가 있습니다. 특히 누진구간 최적화를 통해 2-3단계 누진을 낮출 수 있으며, 연간 수백만원에서 수천만원까지 절약 가능합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "전기요금 절감 서비스는 어떻게 진행되나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "먼저 최근 12개월 전기요금 고지서를 분석하여 전력 사용 패턴을 파악합니다. 이후 누진구간 최적화, 역률 개선, 피크 관리 등 맞춤형 절감 방안을 제안드립니다. 설비 투자 없이도 운영 방식 변경만으로 절감 가능한 경우가 많습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "재무컨설팅은 어떤 서비스를 제공하나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "기업 재무분석 및 진단, 자금조달 전략(대출, 투자유치), 세무/회계 연계 자문, 임원 소득 및 퇴직 설계 등을 제공합니다. 기업의 재무 건전성을 높이고 성장에 필요한 자금을 효율적으로 조달할 수 있도록 지원합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "투자유치 컨설팅도 가능한가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네, 가능합니다. 투자유치 전략 수립, IR 자료 작성, 투자자 매칭, 협상 지원까지 전 과정을 지원합니다. VC, 엔젤투자자, 정책금융 등 다양한 투자 채널에 대한 네트워크를 보유하고 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "사내복지기금이란 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "사내복지기금은 기업이 출연한 자금으로 직원 복지를 위해 운영하는 기금입니다. 주택자금 대출, 장학금, 재난지원금 등을 지원할 수 있으며, 기업은 출연금에 대해 세제 혜택을 받을 수 있습니다. 설립 절차와 운영 방법을 컨설팅해드립니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "고용지원금 컨설팅은 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "정부에서 제공하는 다양한 고용지원금(청년채용특별장려금, 고용유지지원금, 일자리함께하기 등)을 기업 상황에 맞게 매칭하고 신청을 지원하는 서비스입니다. 놓치기 쉬운 지원금을 찾아 연간 수백만원에서 수천만원까지 수령할 수 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "상담 비용은 얼마인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "초기 상담은 무료입니다. 기업 현황을 파악하고 필요한 서비스를 제안드린 후, 서비스별로 비용을 안내해드립니다. 정부지원사업의 경우 성공 시에만 수수료가 발생하는 성과보수 방식도 가능합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "상담 신청은 어떻게 하나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "홈페이지 상담신청 폼을 작성하시거나, 전화(070-8064-3304)로 문의해주세요. 24시간 내에 담당자가 연락드립니다. 평일 09:00-18:00 운영하며, 긴급한 경우 시간 외 상담도 가능합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "어떤 업종의 기업이 이용할 수 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "제조업, IT, 서비스업, 유통업 등 전 업종의 기업이 이용 가능합니다. 스타트업부터 중소기업, 중견기업까지 규모에 관계없이 상담 가능하며, 업종별 특성에 맞는 맞춤 서비스를 제공합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "서비스 제공 지역은 어디인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "전국 어디서나 서비스 이용이 가능합니다. 비대면 상담, 화상회의 등을 통해 지역에 관계없이 동일한 품질의 서비스를 제공합니다. 필요 시 현장 방문 컨설팅도 가능합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Momentum Biz는 어떤 회사인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Momentum Biz(에이룬컴퍼니)는 2015년부터 창업 및 경영 컨설팅을 제공해온 전문 컨설팅 그룹입니다. 경영, 재무, 인사/복지, EAP, 안전관리, 전기요금 절감 등 기업 성장에 필요한 통합 솔루션을 제공합니다. 10년간 500개 이상의 기업을 상담한 경험을 바탕으로 실질적인 도움을 드립니다."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold text-primary">Momentum Biz</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#services" class="text-gray-600 hover:text-primary transition">서비스</a>
+                    <a href="/#about" class="text-gray-600 hover:text-primary transition">회사소개</a>
+                    <a href="/faq.html" class="text-primary font-medium">FAQ</a>
+                    <a href="/#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition">상담신청</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-primary pt-24 pb-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">자주 묻는 질문</h1>
+            <p class="text-gray-300 text-lg">궁금한 점을 빠르게 확인하세요</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="bg-white border-b sticky top-16 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex overflow-x-auto py-4 space-x-4 scrollbar-hide">
+                <button onclick="filterFAQ('all')" class="faq-filter active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-primary text-white" data-category="all">전체</button>
+                <button onclick="filterFAQ('general')" class="faq-filter px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="general">일반</button>
+                <button onclick="filterFAQ('consulting')" class="faq-filter px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="consulting">경영컨설팅</button>
+                <button onclick="filterFAQ('eap')" class="faq-filter px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="eap">EAP</button>
+                <button onclick="filterFAQ('insurance')" class="faq-filter px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="insurance">단체보험/안전</button>
+                <button onclick="filterFAQ('electric')" class="faq-filter px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="electric">전기요금</button>
+                <button onclick="filterFAQ('finance')" class="faq-filter px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="finance">재무/인사</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- 일반 질문 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mr-3 text-sm">📋</span>
+                    일반 문의
+                </h2>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">상담 비용은 얼마인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">초기 상담은 <strong>무료</strong>입니다. 기업 현황을 파악하고 필요한 서비스를 제안드린 후, 서비스별로 비용을 안내해드립니다. 정부지원사업의 경우 성공 시에만 수수료가 발생하는 <strong>성과보수 방식</strong>도 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">상담 신청은 어떻게 하나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">홈페이지 <a href="/#contact" class="text-secondary hover:underline">상담신청 폼</a>을 작성하시거나, 전화(<strong>070-8064-3304</strong>)로 문의해주세요. 24시간 내에 담당자가 연락드립니다. 평일 09:00-18:00 운영하며, 긴급한 경우 시간 외 상담도 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">어떤 업종의 기업이 이용할 수 있나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">제조업, IT, 서비스업, 유통업 등 <strong>전 업종</strong>의 기업이 이용 가능합니다. 스타트업부터 중소기업, 중견기업까지 규모에 관계없이 상담 가능하며, 업종별 특성에 맞는 맞춤 서비스를 제공합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">서비스 제공 지역은 어디인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed"><strong>전국 어디서나</strong> 서비스 이용이 가능합니다. 비대면 상담, 화상회의 등을 통해 지역에 관계없이 동일한 품질의 서비스를 제공합니다. 필요 시 현장 방문 컨설팅도 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">Momentum Biz는 어떤 회사인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">Momentum Biz(에이룬컴퍼니)는 <strong>2015년</strong>부터 창업 및 경영 컨설팅을 제공해온 전문 컨설팅 그룹입니다. 경영, 재무, 인사/복지, EAP, 안전관리, 전기요금 절감 등 기업 성장에 필요한 통합 솔루션을 제공합니다. <strong>10년간 500개 이상</strong>의 기업을 상담한 경험을 바탕으로 실질적인 도움을 드립니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 경영 컨설팅 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 text-sm">📊</span>
+                    경영 컨설팅
+                </h2>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="faq-item" data-category="consulting">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">스타트업 법인설립 비용은 얼마인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">법인설립 비용은 자본금 규모와 설립 형태에 따라 달라집니다. 일반적으로 등록면허세, 교육세, 법원 수수료 등 <strong>공과금이 약 30-50만원</strong> 정도 소요되며, 컨설팅 비용은 별도입니다. Momentum Biz에서는 초기 상담을 통해 정확한 견적을 <strong>무료</strong>로 제공해드립니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="consulting">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">정부지원사업 신청 자격 조건은 무엇인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">정부지원사업마다 자격 조건이 다릅니다. 일반적으로 <strong>창업 7년 이내 기업, 중소기업 기준 충족, 세금 체납 없음</strong> 등이 기본 조건입니다. 업종, 매출액, 고용 인원 등에 따라 지원 가능한 사업이 달라지므로, 무료 상담을 통해 귀사에 맞는 지원사업을 매칭해드립니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="consulting">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">투자유치 컨설팅도 가능한가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">네, 가능합니다. 투자유치 전략 수립, IR 자료 작성, 투자자 매칭, 협상 지원까지 <strong>전 과정을 지원</strong>합니다. VC, 엔젤투자자, 정책금융 등 다양한 투자 채널에 대한 네트워크를 보유하고 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EAP 서비스 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3 text-sm">💚</span>
+                    EAP 서비스
+                </h2>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="faq-item" data-category="eap">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">EAP 서비스란 무엇인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed"><strong>EAP(Employee Assistance Program)</strong>는 직원지원프로그램으로, 직원들의 정신건강, 스트레스 관리, 재무 상담, 법률 상담 등을 지원하는 복지 프로그램입니다. 직원 만족도 향상, 이직률 감소, 생산성 향상 등의 효과가 있으며, 기업 규모와 필요에 맞게 맞춤형으로 제공됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="eap">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">EAP 도입 시 직원 수 제한이 있나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed"><strong>직원 수 제한은 없습니다.</strong> 10인 미만 소규모 기업부터 대기업까지 모든 규모의 기업에서 도입 가능합니다. 직원 수에 따라 프로그램 구성과 비용이 달라지며, 소규모 기업을 위한 경제적인 패키지도 준비되어 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="eap">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">EAP 도입 효과는 어느 정도인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">EAP 도입 기업 평균 데이터 기준:</p>
+                            <ul class="mt-2 space-y-1 text-gray-600">
+                                <li>• 직원 스트레스 <strong>약 30% 감소</strong></li>
+                                <li>• 이직률 <strong>약 25% 감소</strong></li>
+                                <li>• 생산성 <strong>약 20% 향상</strong></li>
+                                <li>• 투자 대비 효과(ROI) <strong>평균 3:1</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 단체보험/안전관리 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-3 text-sm">🛡️</span>
+                    단체보험/안전관리
+                </h2>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="faq-item" data-category="insurance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">단체보험 가입 시 최소 인원 조건이 있나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">보험사마다 다르지만, 일반적으로 <strong>5인 이상</strong>부터 단체보험 가입이 가능합니다. 5인 미만 기업의 경우에도 중소기업 전용 상품이나 협회 단체보험 등 대안을 찾아드릴 수 있으니 상담해주세요.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="insurance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">단체보험 보장 범위는 어떻게 되나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">단체보험은 다음을 보장합니다:</p>
+                            <ul class="mt-2 space-y-1 text-gray-600">
+                                <li>• 상해: <strong>최대 5,000만원</strong></li>
+                                <li>• 장애: <strong>최대 1억원</strong></li>
+                                <li>• 사망: <strong>최대 2억원</strong></li>
+                            </ul>
+                            <p class="mt-2 text-gray-600">업무상 재해뿐 아니라 일반 상해도 보장되며, 입원비, 수술비, 재활치료비 등도 포함됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="insurance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">ISO45001 인증이란 무엇인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed"><strong>ISO45001</strong>은 국제표준화기구(ISO)에서 제정한 안전보건경영시스템 국제 표준입니다. 기업의 산업재해 예방과 안전한 작업환경 조성을 위한 체계적인 관리 시스템을 구축했음을 인증받는 것입니다. <strong>대기업 납품, 공공기관 입찰 시 가산점</strong> 혜택이 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="insurance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">ISO45001 인증 취득까지 얼마나 걸리나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">기업 규모와 현재 안전관리 수준에 따라 다르지만, 일반적으로 <strong>3-6개월</strong> 정도 소요됩니다. 컨설팅을 통해 현황 진단, 문서화 시스템 구축, 내부심사원 교육, 인증심사 대응까지 전 과정을 지원해드립니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 전기요금 절감 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3 text-sm">⚡</span>
+                    전기요금 절감
+                </h2>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="faq-item" data-category="electric">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">전기요금 절감 효과는 얼마나 되나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">사업장 특성에 따라 다르지만, 평균적으로 <strong>15-30%</strong>의 전기요금 절감 효과가 있습니다. 특히 누진구간 최적화를 통해 <strong>2-3단계 누진</strong>을 낮출 수 있으며, 연간 수백만원에서 수천만원까지 절약 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="electric">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">전기요금 절감 서비스는 어떻게 진행되나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">먼저 <strong>최근 12개월 전기요금 고지서</strong>를 분석하여 전력 사용 패턴을 파악합니다. 이후 누진구간 최적화, 역률 개선, 피크 관리 등 맞춤형 절감 방안을 제안드립니다. <strong>설비 투자 없이도</strong> 운영 방식 변경만으로 절감 가능한 경우가 많습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 재무/인사 컨설팅 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3 text-sm">💰</span>
+                    재무/인사 컨설팅
+                </h2>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                    <div class="faq-item" data-category="finance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">재무컨설팅은 어떤 서비스를 제공하나요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">다음 서비스를 제공합니다:</p>
+                            <ul class="mt-2 space-y-1 text-gray-600">
+                                <li>• 기업 재무분석 및 진단</li>
+                                <li>• 자금조달 전략 (대출, 투자유치)</li>
+                                <li>• 세무/회계 연계 자문</li>
+                                <li>• 임원 소득 및 퇴직 설계</li>
+                            </ul>
+                            <p class="mt-2 text-gray-600">기업의 재무 건전성을 높이고 성장에 필요한 자금을 효율적으로 조달할 수 있도록 지원합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="finance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">사내복지기금이란 무엇인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed"><strong>사내복지기금</strong>은 기업이 출연한 자금으로 직원 복지를 위해 운영하는 기금입니다. 주택자금 대출, 장학금, 재난지원금 등을 지원할 수 있으며, 기업은 출연금에 대해 <strong>세제 혜택</strong>을 받을 수 있습니다. 설립 절차와 운영 방법을 컨설팅해드립니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="finance">
+                        <button class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-medium text-gray-900 pr-4">고용지원금 컨설팅은 무엇인가요?</span>
+                            <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-gray-600 leading-relaxed">정부에서 제공하는 다양한 고용지원금(청년채용특별장려금, 고용유지지원금, 일자리함께하기 등)을 기업 상황에 맞게 매칭하고 신청을 지원하는 서비스입니다. 놓치기 쉬운 지원금을 찾아 <strong>연간 수백만원에서 수천만원</strong>까지 수령할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">더 궁금한 점이 있으신가요?</h2>
+            <p class="text-gray-300 text-lg mb-8">전문 상담사가 친절하게 답변해드립니다</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/#contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    무료 상담 신청
+                </a>
+                <a href="tel:070-8064-3304" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">
+                    📞 070-8064-3304
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">Momentum Biz</h3>
+                    <p class="text-sm leading-relaxed">
+                        회사와 사업의 첫 발을 위한 파트너<br>
+                        잠재력을 발견하고 성장을 설계합니다.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">바로가기</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-white transition">홈</a></li>
+                        <li><a href="/#services" class="hover:text-white transition">서비스</a></li>
+                        <li><a href="/faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="/#contact" class="hover:text-white transition">상담신청</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">회사 정보</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>상호: 에이룬컴퍼니</li>
+                        <li>대표: 임수현</li>
+                        <li>연락처: 070-8064-3304</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2024 Momentum Biz (에이룬컴퍼니). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        // FAQ 아코디언 기능
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+
+                // 다른 열린 항목 닫기
+                document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                    if (openAnswer !== answer) {
+                        openAnswer.classList.remove('open');
+                        openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('open');
+                    }
+                });
+
+                // 현재 항목 토글
+                answer.classList.toggle('open');
+                icon.classList.toggle('open');
+            });
+        });
+
+        // 카테고리 필터 기능
+        function filterFAQ(category) {
+            // 버튼 스타일 업데이트
+            document.querySelectorAll('.faq-filter').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-600');
+            });
+            event.target.classList.remove('bg-gray-100', 'text-gray-600');
+            event.target.classList.add('bg-primary', 'text-white');
+
+            // FAQ 항목 필터링
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // 섹션 표시/숨김
+            document.querySelectorAll('section > div > div.mb-8').forEach(section => {
+                const items = section.querySelectorAll('.faq-item');
+                const visibleItems = Array.from(items).filter(item => item.style.display !== 'none');
+                section.style.display = visibleItems.length > 0 ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
