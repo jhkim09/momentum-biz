@@ -1,0 +1,30 @@
+# Momentum Biz - 에이룬컴퍼니
+# https://mmtum.co.kr
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mmtum.co.kr/sitemap.xml
+
+# AI Crawlers - Allow all
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
