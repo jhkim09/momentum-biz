@@ -44,8 +44,17 @@
         body { font-family: 'Noto Sans KR', sans-serif; }
         .faq-item { border-bottom: 1px solid #e5e7eb; }
         .faq-item:last-child { border-bottom: none; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-        .faq-answer.open { max-height: 500px; }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        .faq-answer.open {
+            max-height: 500px;
+            padding-bottom: 1.25rem !important;
+        }
         .faq-icon { transition: transform 0.3s ease; }
         .faq-icon.open { transform: rotate(180deg); }
     </style>
@@ -279,7 +288,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">초기 상담은 <strong>무료</strong>입니다. 기업 현황을 파악하고 필요한 서비스를 제안드린 후, 서비스별로 비용을 안내해드립니다. 정부지원사업의 경우 성공 시에만 수수료가 발생하는 <strong>성과보수 방식</strong>도 가능합니다.</p>
                         </div>
                     </div>
@@ -290,7 +299,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">홈페이지 <a href="/#contact" class="text-secondary hover:underline">상담신청 폼</a>을 작성하시거나, 전화(<strong>070-8064-3304</strong>)로 문의해주세요. 24시간 내에 담당자가 연락드립니다. 평일 09:00-18:00 운영하며, 긴급한 경우 시간 외 상담도 가능합니다.</p>
                         </div>
                     </div>
@@ -301,7 +310,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">제조업, IT, 서비스업, 유통업 등 <strong>전 업종</strong>의 기업이 이용 가능합니다. 스타트업부터 중소기업, 중견기업까지 규모에 관계없이 상담 가능하며, 업종별 특성에 맞는 맞춤 서비스를 제공합니다.</p>
                         </div>
                     </div>
@@ -312,7 +321,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed"><strong>전국 어디서나</strong> 서비스 이용이 가능합니다. 비대면 상담, 화상회의 등을 통해 지역에 관계없이 동일한 품질의 서비스를 제공합니다. 필요 시 현장 방문 컨설팅도 가능합니다.</p>
                         </div>
                     </div>
@@ -323,7 +332,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">Momentum Biz(에이룬컴퍼니)는 <strong>2015년</strong>부터 창업 및 경영 컨설팅을 제공해온 전문 컨설팅 그룹입니다. 경영, 재무, 인사/복지, EAP, 안전관리, 전기요금 절감 등 기업 성장에 필요한 통합 솔루션을 제공합니다. <strong>10년간 500개 이상</strong>의 기업을 상담한 경험을 바탕으로 실질적인 도움을 드립니다.</p>
                         </div>
                     </div>
@@ -344,7 +353,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">법인설립 비용은 자본금 규모와 설립 형태에 따라 달라집니다. 일반적으로 등록면허세, 교육세, 법원 수수료 등 <strong>공과금이 약 30-50만원</strong> 정도 소요되며, 컨설팅 비용은 별도입니다. Momentum Biz에서는 초기 상담을 통해 정확한 견적을 <strong>무료</strong>로 제공해드립니다.</p>
                         </div>
                     </div>
@@ -355,7 +364,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">정부지원사업마다 자격 조건이 다릅니다. 일반적으로 <strong>창업 7년 이내 기업, 중소기업 기준 충족, 세금 체납 없음</strong> 등이 기본 조건입니다. 업종, 매출액, 고용 인원 등에 따라 지원 가능한 사업이 달라지므로, 무료 상담을 통해 귀사에 맞는 지원사업을 매칭해드립니다.</p>
                         </div>
                     </div>
@@ -366,7 +375,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">네, 가능합니다. 투자유치 전략 수립, IR 자료 작성, 투자자 매칭, 협상 지원까지 <strong>전 과정을 지원</strong>합니다. VC, 엔젤투자자, 정책금융 등 다양한 투자 채널에 대한 네트워크를 보유하고 있습니다.</p>
                         </div>
                     </div>
@@ -387,7 +396,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed"><strong>EAP(Employee Assistance Program)</strong>는 직원지원프로그램으로, 직원들의 정신건강, 스트레스 관리, 재무 상담, 법률 상담 등을 지원하는 복지 프로그램입니다. 직원 만족도 향상, 이직률 감소, 생산성 향상 등의 효과가 있으며, 기업 규모와 필요에 맞게 맞춤형으로 제공됩니다.</p>
                         </div>
                     </div>
@@ -398,7 +407,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed"><strong>직원 수 제한은 없습니다.</strong> 10인 미만 소규모 기업부터 대기업까지 모든 규모의 기업에서 도입 가능합니다. 직원 수에 따라 프로그램 구성과 비용이 달라지며, 소규모 기업을 위한 경제적인 패키지도 준비되어 있습니다.</p>
                         </div>
                     </div>
@@ -409,7 +418,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">EAP 도입 기업 평균 데이터 기준:</p>
                             <ul class="mt-2 space-y-1 text-gray-600">
                                 <li>• 직원 스트레스 <strong>약 30% 감소</strong></li>
@@ -436,7 +445,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">보험사마다 다르지만, 일반적으로 <strong>5인 이상</strong>부터 단체보험 가입이 가능합니다. 5인 미만 기업의 경우에도 중소기업 전용 상품이나 협회 단체보험 등 대안을 찾아드릴 수 있으니 상담해주세요.</p>
                         </div>
                     </div>
@@ -447,7 +456,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">단체보험은 다음을 보장합니다:</p>
                             <ul class="mt-2 space-y-1 text-gray-600">
                                 <li>• 상해: <strong>최대 5,000만원</strong></li>
@@ -464,7 +473,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed"><strong>ISO45001</strong>은 국제표준화기구(ISO)에서 제정한 안전보건경영시스템 국제 표준입니다. 기업의 산업재해 예방과 안전한 작업환경 조성을 위한 체계적인 관리 시스템을 구축했음을 인증받는 것입니다. <strong>대기업 납품, 공공기관 입찰 시 가산점</strong> 혜택이 있습니다.</p>
                         </div>
                     </div>
@@ -475,7 +484,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">기업 규모와 현재 안전관리 수준에 따라 다르지만, 일반적으로 <strong>3-6개월</strong> 정도 소요됩니다. 컨설팅을 통해 현황 진단, 문서화 시스템 구축, 내부심사원 교육, 인증심사 대응까지 전 과정을 지원해드립니다.</p>
                         </div>
                     </div>
@@ -496,7 +505,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">사업장 특성에 따라 다르지만, 평균적으로 <strong>15-30%</strong>의 전기요금 절감 효과가 있습니다. 특히 누진구간 최적화를 통해 <strong>2-3단계 누진</strong>을 낮출 수 있으며, 연간 수백만원에서 수천만원까지 절약 가능합니다.</p>
                         </div>
                     </div>
@@ -507,7 +516,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">먼저 <strong>최근 12개월 전기요금 고지서</strong>를 분석하여 전력 사용 패턴을 파악합니다. 이후 누진구간 최적화, 역률 개선, 피크 관리 등 맞춤형 절감 방안을 제안드립니다. <strong>설비 투자 없이도</strong> 운영 방식 변경만으로 절감 가능한 경우가 많습니다.</p>
                         </div>
                     </div>
@@ -528,7 +537,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">다음 서비스를 제공합니다:</p>
                             <ul class="mt-2 space-y-1 text-gray-600">
                                 <li>• 기업 재무분석 및 진단</li>
@@ -546,7 +555,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed"><strong>사내복지기금</strong>은 기업이 출연한 자금으로 직원 복지를 위해 운영하는 기금입니다. 주택자금 대출, 장학금, 재난지원금 등을 지원할 수 있으며, 기업은 출연금에 대해 <strong>세제 혜택</strong>을 받을 수 있습니다. 설립 절차와 운영 방법을 컨설팅해드립니다.</p>
                         </div>
                     </div>
@@ -557,7 +566,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="faq-answer px-6 pb-5">
+                        <div class="faq-answer px-6">
                             <p class="text-gray-600 leading-relaxed">정부에서 제공하는 다양한 고용지원금(청년채용특별장려금, 고용유지지원금, 일자리함께하기 등)을 기업 상황에 맞게 매칭하고 신청을 지원하는 서비스입니다. 놓치기 쉬운 지원금을 찾아 <strong>연간 수백만원에서 수천만원</strong>까지 수령할 수 있습니다.</p>
                         </div>
                     </div>
