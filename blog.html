@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블로그 | Momentum Biz - 경영 컨설팅 인사이트</title>
+    <meta name="description" content="스타트업과 중소기업을 위한 경영, 재무, 인사 컨설팅 인사이트. 정부지원사업, EAP, 벤처인증 등 실무 가이드를 제공합니다.">
+    <meta name="keywords" content="경영컨설팅 블로그, 스타트업 가이드, 정부지원사업 신청, EAP 도입, 벤처인증 방법">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="블로그 | Momentum Biz">
+    <meta property="og:description" content="스타트업과 중소기업을 위한 경영 컨설팅 인사이트">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mmtum.co.kr/blog.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+
+    <!-- Schema.org Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Momentum Biz 블로그",
+        "description": "스타트업과 중소기업을 위한 경영 컨설팅 인사이트",
+        "url": "https://mmtum.co.kr/blog.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Momentum Biz",
+            "url": "https://mmtum.co.kr"
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto">
+                    <span class="text-2xl font-bold text-primary">Momentum Biz</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#services" class="text-gray-600 hover:text-primary transition">서비스</a>
+                    <a href="/#about" class="text-gray-600 hover:text-primary transition">회사소개</a>
+                    <a href="blog.html" class="text-primary font-medium">블로그</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-primary transition">FAQ</a>
+                    <a href="/#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition">상담신청</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="/#services" class="block py-2 text-gray-600 hover:text-primary">서비스</a>
+                <a href="/#about" class="block py-2 text-gray-600 hover:text-primary">회사소개</a>
+                <a href="blog.html" class="block py-2 text-primary font-medium">블로그</a>
+                <a href="faq.html" class="block py-2 text-gray-600 hover:text-primary">FAQ</a>
+                <a href="/#contact" class="block py-2 text-primary font-medium">상담신청</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-primary pt-24 pb-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">블로그</h1>
+            <p class="text-xl text-gray-300">경영 컨설팅 인사이트와 실무 가이드</p>
+        </div>
+    </header>
+
+    <!-- Blog Posts -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Post 1: EAP 가이드 -->
+            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
+                <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <span class="inline-block bg-orange-100 text-orange-600 text-xs font-medium px-3 py-1 rounded-full mb-3">EAP</span>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">
+                        <a href="blog/eap-guide.html" class="hover:text-primary transition">EAP(직원지원프로그램)란? 도입 효과와 방법</a>
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">직원의 정신건강과 업무 효율을 높이는 EAP 프로그램. 도입 효과, 비용, 운영 방법까지 상세히 알아봅니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span>2026.01.06</span>
+                        <a href="blog/eap-guide.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 2: 정부지원사업 -->
+            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
+                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <span class="inline-block bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full mb-3">정부지원</span>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">
+                        <a href="blog/government-support-guide.html" class="hover:text-primary transition">2026년 정부지원사업 신청 가이드</a>
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">스타트업과 중소기업이 활용할 수 있는 주요 정부지원사업과 신청 방법, 선정 노하우를 정리했습니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span>2026.01.06</span>
+                        <a href="blog/government-support-guide.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 3: 벤처인증 -->
+            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
+                <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full mb-3">벤처인증</span>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">
+                        <a href="blog/venture-certification.html" class="hover:text-primary transition">벤처기업 인증 절차와 혜택 총정리</a>
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">벤처기업 인증을 받으면 세제 혜택, 금융 지원, 입찰 가산점 등 다양한 혜택이 있습니다. 인증 유형별 요건과 절차를 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span>2026.01.06</span>
+                        <a href="blog/venture-certification.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">전문가와 상담하세요</h2>
+            <p class="text-gray-400 text-lg mb-8">블로그 내용이나 서비스에 대해 궁금하신 점이 있으시면 문의해주세요.</p>
+            <a href="/#contact" class="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent/90 transition text-lg">
+                무료 상담 신청하기
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto bg-white rounded-lg p-1">
+                    <span class="text-white text-xl font-bold">Momentum Biz</span>
+                </div>
+                <p class="text-sm mb-4">잠재력을 발견하고 성장을 설계합니다.</p>
+                <p class="text-sm">&copy; 2024 Momentum Biz (에이룬컴퍼니). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
