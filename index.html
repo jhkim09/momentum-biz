@@ -45,8 +45,7 @@
 
     <style>
         html {
-            scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: y proximity;
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -934,6 +933,52 @@
         // 애니메이션 대상 요소 관찰
         document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(el => {
             observer.observe(el);
+        });
+
+        // 부드러운 스크롤 스냅 (속도 조절)
+        let isScrolling = false;
+        let scrollTimeout;
+        const sections = document.querySelectorAll('.snap-section');
+
+        function smoothScrollTo(targetY, duration = 800) {
+            const startY = window.scrollY;
+            const diff = targetY - startY;
+            let start = null;
+
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const easeProgress = easeInOutCubic(progress);
+
+                window.scrollTo(0, startY + diff * easeProgress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    isScrolling = false;
+                }
+            }
+
+            isScrolling = true;
+            requestAnimationFrame(step);
+        }
+
+        // 네비게이션 링크 클릭시 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    smoothScrollTo(target.offsetTop, 1000);
+                }
+            });
         });
     </script>
 </body>
