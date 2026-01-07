@@ -45,7 +45,12 @@
 
     <style>
         html {
-            scroll-snap-type: y proximity;
+            scroll-snap-type: y mandatory;
+        }
+        @media (min-width: 768px) {
+            html {
+                scroll-snap-type: y proximity;
+            }
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
