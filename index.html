@@ -46,6 +46,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -53,12 +54,7 @@
         /* 섹션 스크롤 스냅 */
         .snap-section {
             scroll-snap-align: start;
-            scroll-margin-top: 80px;
-        }
-        @media (min-width: 768px) {
-            main {
-                scroll-snap-type: y proximity;
-            }
+            scroll-snap-stop: normal;
         }
         .gradient-bg {
             background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
