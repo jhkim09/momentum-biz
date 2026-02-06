@@ -1,11 +1,225 @@
 /**
  * Momentum Biz 블로그 공통 기능
+ * - 비밀번호 보호 (사업자등록번호)
  * - 공유 버튼 (URL 복사, 카카오톡, 페이스북, 트위터)
  * - 우클릭/드래그 방지
  */
 
 (function() {
     'use strict';
+
+    // ==========================================
+    // 0. 비밀번호 보호 기능
+    // ==========================================
+
+    const STORAGE_KEY = 'mmtum_blog_auth';
+    const AUTH_EXPIRY_HOURS = 24; // 인증 유효 시간
+
+    function getPassword() {
+        // 1순위: <html data-password="...">
+        const htmlPassword = document.documentElement.dataset.password;
+        if (htmlPassword) return htmlPassword;
+
+        // 2순위: <meta name="blog-password" content="...">
+        const metaPassword = document.querySelector('meta[name="blog-password"]');
+        if (metaPassword) return metaPassword.content;
+
+        return null; // 비밀번호 없으면 보호 안 함
+    }
+
+    function isAuthenticated(password) {
+        try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (!stored) return false;
+
+            const { hash, expiry } = JSON.parse(stored);
+            if (Date.now() > expiry) {
+                localStorage.removeItem(STORAGE_KEY);
+                return false;
+            }
+
+            return hash === simpleHash(password);
+        } catch {
+            return false;
+        }
+    }
+
+    function saveAuth(password) {
+        const expiry = Date.now() + (AUTH_EXPIRY_HOURS * 60 * 60 * 1000);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            hash: simpleHash(password),
+            expiry: expiry
+        }));
+    }
+
+    function simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+        }
+        return hash.toString(36);
+    }
+
+    function showPasswordModal(password) {
+        // 콘텐츠 숨기기
+        document.body.style.visibility = 'hidden';
+
+        const overlay = document.createElement('div');
+        overlay.id = 'password-overlay';
+        overlay.innerHTML = `
+            <div class="pw-modal">
+                <div class="pw-icon">🔒</div>
+                <h2>보호된 콘텐츠</h2>
+                <p>이 글은 고객사 전용 콘텐츠입니다.<br>비밀번호를 입력해 주세요.</p>
+                <form id="pw-form">
+                    <input type="password" id="pw-input" placeholder="비밀번호 (사업자등록번호)" autocomplete="off">
+                    <button type="submit">확인</button>
+                </form>
+                <p id="pw-error" class="error"></p>
+                <a href="/" class="back-link">← 메인으로 돌아가기</a>
+            </div>
+        `;
+
+        const style = document.createElement('style');
+        style.id = 'password-style';
+        style.textContent = `
+            #password-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999;
+                visibility: visible !important;
+            }
+            .pw-modal {
+                background: white;
+                padding: 40px;
+                border-radius: 16px;
+                text-align: center;
+                max-width: 400px;
+                width: 90%;
+                box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            }
+            .pw-icon {
+                font-size: 48px;
+                margin-bottom: 16px;
+            }
+            .pw-modal h2 {
+                color: #1e3a5f;
+                margin: 0 0 12px;
+                font-size: 24px;
+            }
+            .pw-modal p {
+                color: #64748b;
+                margin: 0 0 24px;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+            #pw-form {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            #pw-input {
+                padding: 14px 16px;
+                border: 2px solid #e2e8f0;
+                border-radius: 8px;
+                font-size: 16px;
+                text-align: center;
+                letter-spacing: 2px;
+                transition: border-color 0.2s;
+            }
+            #pw-input:focus {
+                outline: none;
+                border-color: #3b82f6;
+            }
+            #pw-form button {
+                padding: 14px;
+                background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+            #pw-form button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            }
+            .pw-modal .error {
+                color: #ef4444;
+                font-size: 13px;
+                margin: 12px 0 0;
+                min-height: 20px;
+            }
+            .back-link {
+                display: inline-block;
+                margin-top: 20px;
+                color: #64748b;
+                text-decoration: none;
+                font-size: 13px;
+            }
+            .back-link:hover {
+                color: #1e3a5f;
+            }
+        `;
+
+        document.head.appendChild(style);
+        document.body.appendChild(overlay);
+
+        const form = document.getElementById('pw-form');
+        const input = document.getElementById('pw-input');
+        const error = document.getElementById('pw-error');
+
+        input.focus();
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const entered = input.value.replace(/[^0-9]/g, ''); // 숫자만
+
+            if (entered === password) {
+                saveAuth(password);
+                overlay.remove();
+                style.remove();
+                document.body.style.visibility = 'visible';
+            } else {
+                error.textContent = '비밀번호가 올바르지 않습니다.';
+                input.value = '';
+                input.focus();
+                input.style.borderColor = '#ef4444';
+                setTimeout(() => {
+                    input.style.borderColor = '#e2e8f0';
+                }, 1000);
+            }
+        });
+    }
+
+    function initPasswordProtection() {
+        const password = getPassword();
+        if (!password) {
+            document.body.style.visibility = 'visible';
+            return; // 비밀번호 설정 안 됨 = 보호 안 함
+        }
+
+        if (isAuthenticated(password)) {
+            document.body.style.visibility = 'visible';
+            return; // 이미 인증됨
+        }
+
+        showPasswordModal(password);
+    }
+
+    // 비밀번호 보호 먼저 실행
+    initPasswordProtection();
 
     // ==========================================
     // 1. 우클릭 및 복사 방지
