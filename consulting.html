@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경영컨설팅 보고서 신청 | Momentum Biz</title>
+    <meta name="description" content="전문 컨설턴트가 작성하는 맞춤형 경영분석 보고서. AI 기반 경영 진단 및 전략 제안.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto">
+                    <span class="text-2xl font-bold text-primary">Momentum Biz</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#services" class="text-gray-600 hover:text-primary transition">서비스</a>
+                    <a href="/#about" class="text-gray-600 hover:text-primary transition">회사소개</a>
+                    <a href="blog.html" class="text-gray-600 hover:text-primary transition">블로그</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-primary transition">FAQ</a>
+                    <a href="consulting.html" class="text-secondary font-medium">보고서 신청</a>
+                    <a href="/#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition">상담신청</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="/#services" class="block py-2 text-gray-600 hover:text-primary">서비스</a>
+                <a href="/#about" class="block py-2 text-gray-600 hover:text-primary">회사소개</a>
+                <a href="blog.html" class="block py-2 text-gray-600 hover:text-primary">블로그</a>
+                <a href="faq.html" class="block py-2 text-gray-600 hover:text-primary">FAQ</a>
+                <a href="consulting.html" class="block py-2 text-secondary font-medium">보고서 신청</a>
+                <a href="/#contact" class="block py-2 text-primary font-medium">상담신청</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- 로그인 전: 소개 + Google 로그인 -->
+            <section id="login-section">
+                <!-- 소개 헤더 -->
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4">경영컨설팅 보고서</h1>
+                    <p class="text-gray-600 text-lg">전문 컨설턴트가 작성하는 맞춤형 경영분석 보고서</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-lg mx-auto">
+                    <div class="text-center mb-8">
+                        <div class="inline-block bg-gradient-to-r from-primary to-secondary text-white text-3xl font-bold px-6 py-3 rounded-xl mb-6">
+                            $5 <span class="text-lg font-normal opacity-80">/건</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            기업 현황 분석 및 진단
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            경영 전략 제안
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            재무 분석 리포트
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            AI 기반 맞춤 솔루션
+                        </li>
+                    </ul>
+
+                    <button onclick="handleGoogleLogin()" class="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 hover:border-primary hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-xl transition">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google 계정으로 시작하기
+                    </button>
+                </div>
+            </section>
+
+            <!-- 로그인 후: 결제 폼 -->
+            <section id="payment-section" class="hidden">
+                <!-- 사용자 정보 바 -->
+                <div id="user-info" class="flex items-center justify-between bg-white rounded-xl shadow-sm px-6 py-3 mb-8">
+                    <div class="flex items-center gap-3">
+                        <img id="user-avatar" src="" alt="avatar" class="w-10 h-10 rounded-full">
+                        <span id="user-name" class="font-medium text-gray-800"></span>
+                    </div>
+                    <button onclick="handleLogout()" class="text-sm text-gray-500 hover:text-red-500 transition">로그아웃</button>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-2">보고서 신청</h2>
+                    <p class="text-gray-500 mb-6">결제 전 아래 정보를 입력해주세요</p>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="input-company" class="block text-sm font-medium text-gray-700 mb-1">회사명 *</label>
+                            <input type="text" id="input-company" placeholder="(주)회사명" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                        </div>
+                        <div>
+                            <label for="input-ceo" class="block text-sm font-medium text-gray-700 mb-1">대표자명 *</label>
+                            <input type="text" id="input-ceo" placeholder="홍길동" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                        </div>
+                        <div>
+                            <label for="input-email" class="block text-sm font-medium text-gray-700 mb-1">이메일 *</label>
+                            <input type="email" id="input-email" placeholder="example@email.com" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                        </div>
+                        <div>
+                            <label for="input-phone" class="block text-sm font-medium text-gray-700 mb-1">휴대폰번호 *</label>
+                            <input type="tel" id="input-phone" placeholder="010-1234-5678" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                        </div>
+                    </div>
+
+                    <!-- 결제 요약 -->
+                    <div class="bg-gray-50 rounded-xl p-5 mb-6">
+                        <div class="flex justify-between text-gray-600 mb-2">
+                            <span>경영컨설팅 보고서</span>
+                            <span>1건</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold text-primary border-t pt-3">
+                            <span>결제 금액</span>
+                            <span>$5.00</span>
+                        </div>
+                    </div>
+
+                    <!-- PayPal 버튼 -->
+                    <div id="paypal-button-container">
+                        <p class="text-center text-gray-400 py-5">PayPal 결제 버튼 로딩 중...</p>
+                    </div>
+                    <p id="payment-error" class="text-red-500 text-sm text-center mt-2 hidden"></p>
+                </div>
+            </section>
+
+            <!-- 결제 완료 -->
+            <section id="complete-section" class="hidden">
+                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center max-w-lg mx-auto">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-primary mb-2">결제가 완료되었습니다!</h2>
+                    <p class="text-gray-500 mb-6">경영컨설팅 보고서가 곧 준비됩니다.</p>
+                    <div id="receipt-info" class="text-left bg-gray-50 rounded-xl p-5 mb-6 text-sm text-gray-700 space-y-1"></div>
+                    <button onclick="resetToPayment()" class="bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary/90 transition font-medium">
+                        추가 신청하기
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-gray-300 py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+            <p>&copy; 2024 Momentum Biz (에이룬컴퍼니). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AWl2XgqBKrm6KC6DNiycu7p2XZW5A5eo4rucMprRMzJnNA3axCFX4cl9pkvblkVTBOIlDc6m72756Sa-&currency=USD"></script>
+
+    <script>
+    // ============================================
+    // Firebase 설정
+    // ============================================
+    const firebaseConfig = {
+        apiKey: "AIzaSyBWHTskXr1izeV0wWS8iPzsD4L4IHdoYyY",
+        authDomain: "consultpay-13d53.firebaseapp.com",
+        projectId: "consultpay-13d53",
+        storageBucket: "consultpay-13d53.firebasestorage.app",
+        messagingSenderId: "296494970090",
+        appId: "1:296494970090:web:2e0aed355f5ec007239393",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    let currentUser = null;
+
+    // ============================================
+    // UI 요소
+    // ============================================
+    const loginSection = document.getElementById("login-section");
+    const paymentSection = document.getElementById("payment-section");
+    const completeSection = document.getElementById("complete-section");
+    const inputCompany = document.getElementById("input-company");
+    const inputCeo = document.getElementById("input-ceo");
+    const inputEmail = document.getElementById("input-email");
+    const inputPhone = document.getElementById("input-phone");
+    const paymentError = document.getElementById("payment-error");
+
+    // ============================================
+    // Auth 상태 관리
+    // ============================================
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            currentUser = user;
+            showPaymentScreen(user);
+        } else {
+            currentUser = null;
+            showLoginScreen();
+        }
+    });
+
+    function showLoginScreen() {
+        loginSection.classList.remove("hidden");
+        paymentSection.classList.add("hidden");
+        completeSection.classList.add("hidden");
+    }
+
+    let paypalRendered = false;
+
+    function showPaymentScreen(user) {
+        loginSection.classList.add("hidden");
+        paymentSection.classList.remove("hidden");
+        completeSection.classList.add("hidden");
+
+        document.getElementById("user-avatar").src = user.photoURL || "";
+        document.getElementById("user-name").textContent = user.displayName || "사용자";
+        inputEmail.value = user.email || "";
+
+        if (!paypalRendered) {
+            renderPayPalButton();
+            paypalRendered = true;
+        }
+    }
+
+    function showCompleteScreen(data) {
+        loginSection.classList.add("hidden");
+        paymentSection.classList.add("hidden");
+        completeSection.classList.remove("hidden");
+
+        document.getElementById("receipt-info").innerHTML = `
+            <p><strong>주문번호:</strong> ${data.order_id}</p>
+            <p><strong>회사명:</strong> ${data.user.company}</p>
+            <p><strong>대표자:</strong> ${data.user.ceo}</p>
+            <p><strong>이메일:</strong> ${data.user.email}</p>
+            <p><strong>연락처:</strong> ${data.user.phone}</p>
+            <p><strong>결제금액:</strong> $${data.amount}</p>
+            <p><strong>결제시간:</strong> ${new Date(data.timestamp).toLocaleString("ko-KR")}</p>
+        `;
+    }
+
+    // ============================================
+    // Google 로그인/로그아웃
+    // ============================================
+    function handleGoogleLogin() {
+        auth.signInWithPopup(provider).catch((err) => {
+            console.error("로그인 실패:", err);
+            alert("로그인에 실패했습니다. 다시 시도해주세요.");
+        });
+    }
+
+    function handleLogout() {
+        auth.signOut();
+    }
+
+    // ============================================
+    // 유효성 검사
+    // ============================================
+    function validateForm() {
+        const company = inputCompany.value.trim();
+        const ceo = inputCeo.value.trim();
+        const email = inputEmail.value.trim();
+        const phone = inputPhone.value.trim();
+
+        if (!company) { showError("회사명을 입력해주세요."); return false; }
+        if (!ceo) { showError("대표자명을 입력해주세요."); return false; }
+        if (!email) { showError("이메일을 입력해주세요."); return false; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError("올바른 이메일 형식을 입력해주세요."); return false; }
+        if (!phone) { showError("휴대폰번호를 입력해주세요."); return false; }
+        if (!/^[\d\-+() ]{10,}$/.test(phone)) { showError("올바른 휴대폰번호를 입력해주세요."); return false; }
+
+        paymentError.classList.add("hidden");
+        return true;
+    }
+
+    function showError(msg) {
+        paymentError.textContent = msg;
+        paymentError.classList.remove("hidden");
+    }
+
+    // ============================================
+    // PayPal 결제 버튼
+    // ============================================
+    function renderPayPalButton() {
+        if (typeof paypal === "undefined") {
+            document.getElementById("paypal-button-container").innerHTML =
+                '<p class="text-center text-red-500 py-4">PayPal SDK 로드 실패 - 새로고침 해주세요</p>';
+            return;
+        }
+        paypal.Buttons({
+            style: { layout: "vertical", color: "blue", shape: "rect", label: "pay", height: 50 },
+
+            onClick(data, actions) {
+                if (!validateForm()) return actions.reject();
+                return actions.resolve();
+            },
+
+            async createOrder() {
+                const res = await fetch("/api/create-order", { method: "POST" });
+                const order = await res.json();
+                if (order.error) throw new Error(order.error);
+                return order.id;
+            },
+
+            async onApprove(data) {
+                const userPayload = {
+                    name: currentUser.displayName || "이름없음",
+                    company: inputCompany.value.trim(),
+                    ceo: inputCeo.value.trim(),
+                    email: inputEmail.value.trim(),
+                    phone: inputPhone.value.trim(),
+                    uid: currentUser.uid,
+                };
+
+                const res = await fetch("/api/capture-order", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ orderID: data.orderID, userInfo: userPayload }),
+                });
+                const result = await res.json();
+
+                if (result.status === "COMPLETED") {
+                    showCompleteScreen(result.paymentData);
+                } else {
+                    showError("결제 처리 중 문제가 발생했습니다.");
+                }
+            },
+
+            onError(err) {
+                console.error("PayPal 에러:", err);
+                showError("결제 중 오류가 발생했습니다. 다시 시도해주세요.");
+            },
+        }).render("#paypal-button-container");
+    }
+
+    // ============================================
+    // 추가 신청
+    // ============================================
+    function resetToPayment() {
+        inputCompany.value = "";
+        inputCeo.value = "";
+        inputPhone.value = "";
+        showPaymentScreen(currentUser);
+    }
+
+    // ============================================
+    // Mobile Menu
+    // ============================================
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    </script>
+</body>
+</html>
