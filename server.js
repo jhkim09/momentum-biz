@@ -107,8 +107,9 @@ app.post("/api/capture-order", async (req, res) => {
       console.log("=================\n");
 
       // Webhook 전송
-      if (process.env.WEBHOOK_URL) {
-        fetch(process.env.WEBHOOK_URL, {
+      const webhookUrl = process.env.WEBHOOK_URL || 'https://hook.eu2.make.com/b1aiy7t7ciopehqg59o1hmcqvqxzhfzd';
+      if (webhookUrl) {
+        fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(paymentData),
