@@ -179,9 +179,32 @@
                         </div>
                     </div>
 
-                    <!-- PayPal 버튼 -->
-                    <div id="paypal-button-container">
-                        <p class="text-center text-gray-400 py-5">PayPal 결제 버튼 로딩 중...</p>
+                    <!-- 결제 버튼 영역 (가로 배치) -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- 해외 결제 (PayPal) -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="mb-3">
+                                <span class="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded">해외 결제 (PayPal)</span>
+                                <p class="text-gray-400 text-xs mt-1">For International Users</p>
+                            </div>
+                            <div id="paypal-button-container">
+                                <p class="text-center text-gray-400 py-5">PayPal 결제 버튼 로딩 중...</p>
+                            </div>
+                        </div>
+
+                        <!-- 한국 사용자 결제 -->
+                        <div class="border border-gray-200 rounded-xl p-5 flex flex-col">
+                            <div class="mb-3">
+                                <span class="inline-block bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded">한국 사용자 결제</span>
+                                <p class="text-gray-400 text-xs mt-1">신용카드 / 계좌이체 / 간편결제</p>
+                            </div>
+                            <div class="flex-1 flex items-center">
+                                <a href="https://mmtum.shop/pc/item/item-view.html?bmain=view&mode=2&uid=27&depth1=16&depth2=20&page=1&search=" target="_blank"
+                                   class="block w-full text-center bg-gray-900 hover:bg-gray-700 text-white font-bold py-4 rounded-xl transition text-lg">
+                                    국내 결제로 이동하기 →
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <p id="payment-error" class="text-red-500 text-sm text-center mt-2 hidden"></p>
                 </div>
