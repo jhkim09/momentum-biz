@@ -147,6 +147,23 @@ app.get("/api/payments", (req, res) => {
   res.json(payments);
 });
 
+// 국내결제 신청 웹훅 전송
+app.post("/api/kr-payment-notify", async (req, res) => {
+  const webhookUrl = process.env.WEBHOOK_URL || 'https://hook.eu2.make.com/b1aiy7t7ciopehqg59o1hmcqvqxzhfzd';
+  try {
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(req.body),
+    });
+    console.log("국내결제 웹훅 전송 완료:", JSON.stringify(req.body, null, 2));
+    res.json({ success: true });
+  } catch (err) {
+    console.error("국내결제 웹훅 전송 실패:", err);
+    res.status(500).json({ error: "웹훅 전송 실패" });
+  }
+});
+
 // ============================================
 // HTML 페이지 라우팅
 // ============================================

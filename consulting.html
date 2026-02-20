@@ -420,7 +420,6 @@
     // ============================================
     // 한국 결제 (웹훅 전송 후 이동)
     // ============================================
-    const KR_PAY_WEBHOOK_URL = 'https://hook.eu2.make.com/b1aiy7t7ciopehqg59o1hmcqvqxzhfzd';
     const KR_PAY_URL = 'https://mmtum.shop/pc/item/item-view.html?bmain=view&mode=2&uid=27&depth1=16&depth2=20&page=1&search=';
 
     async function handleKrPayment() {
@@ -438,7 +437,7 @@
         };
 
         try {
-            fetch(KR_PAY_WEBHOOK_URL, {
+            await fetch('/api/kr-payment-notify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
