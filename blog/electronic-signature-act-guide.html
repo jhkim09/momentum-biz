@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko" data-password="5408700019">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJGXT7RTN5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BJGXT7RTN5');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전자서명법 핵심정리 - 2020년 전부개정 이후 달라진 것들 | Momentum Biz</title>
+    <meta name="description" content="2020년 전자서명법 전부개정으로 공인인증서가 폐지되었습니다. 모든 전자서명의 동등한 법적 효력, 전자문서의 증거력, 기업 계약 실무에서 알아야 할 핵심 내용을 정리합니다.">
+    <meta name="keywords" content="전자서명법, 공인인증서 폐지, 전자서명, 전자문서, 모두사인, 전자계약, 디지털서명, 전자서명법 개정">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="전자서명법 핵심정리 - 2020년 전부개정 이후 달라진 것들">
+    <meta property="og:description" content="공인인증서 폐지 후 모든 전자서명이 동등한 법적 효력을 가집니다. 기업 실무에서 알아야 할 전자서명법 핵심 내용을 정리합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mmtum.co.kr/blog/electronic-signature-act-guide.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .prose h2 { margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.8; }
+        .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "전자서명법 핵심정리 - 2020년 전부개정 이후 달라진 것들",
+        "description": "공인인증서 폐지 후 달라진 전자서명법 핵심 내용 정리",
+        "author": {
+            "@type": "Organization",
+            "name": "Momentum Biz"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Momentum Biz",
+            "url": "https://mmtum.co.kr"
+        },
+        "datePublished": "2026-02-24",
+        "dateModified": "2026-02-24"
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "전자서명법 개정으로 공인인증서가 완전히 폐지되었나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네. 2020년 12월 10일 전부개정된 전자서명법에 의해 '공인' 전자서명 제도가 폐지되었습니다. 기존 공인인증서는 여전히 사용할 수 있지만, 다른 전자서명보다 우월한 법적 지위를 갖지 않습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "모두사인, 카카오페이 인증 등으로 체결한 계약서도 법적 효력이 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네. 전자서명법 제3조에 따라 전자서명은 그 방식에 관계없이 서명, 서명날인 또는 기명날인으로서의 효력이 있습니다. 다만 분쟁 시 진정성 입증 책임은 서명 당사자에게 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "전자문서도 종이 문서와 같은 법적 효력이 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네. 전자문서 및 전자거래 기본법 제4조에 따라 전자문서는 다른 법률에 특별한 규정이 있는 경우를 제외하고 전자적 형태로 되어 있다는 이유로 문서로서의 효력이 부인되지 않습니다."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="../images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto">
+                    <span class="text-2xl font-bold text-primary">Momentum Biz</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#services" class="text-gray-600 hover:text-primary transition">서비스</a>
+                    <a href="/#about" class="text-gray-600 hover:text-primary transition">회사소개</a>
+                    <a href="../blog.html" class="text-primary font-medium">블로그</a>
+                    <a href="../faq.html" class="text-gray-600 hover:text-primary transition">FAQ</a>
+                    <a href="../consulting.html" class="text-gray-600 hover:text-primary transition">보고서 신청</a>
+                    <a href="/#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition">상담신청</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="/#services" class="block py-2 text-gray-600 hover:text-primary">서비스</a>
+                <a href="/#about" class="block py-2 text-gray-600 hover:text-primary">회사소개</a>
+                <a href="../blog.html" class="block py-2 text-primary font-medium">블로그</a>
+                <a href="../faq.html" class="block py-2 text-gray-600 hover:text-primary">FAQ</a>
+                <a href="../consulting.html" class="block py-2 text-gray-600 hover:text-primary">보고서 신청</a>
+                <a href="/#contact" class="block py-2 text-primary font-medium">상담신청</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article -->
+    <article class="pt-24 pb-16">
+        <!-- Header -->
+        <header class="bg-gradient-to-br from-teal-600 to-cyan-700 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-block bg-white/20 text-white text-sm font-medium px-4 py-1 rounded-full mb-4">법률실무</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">전자서명법 핵심정리<br class="hidden md:block"> - 2020년 전부개정 이후 달라진 것들</h1>
+                <p class="text-teal-100">2026년 2월 24일 · 8분 읽기</p>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 prose max-w-none">
+
+                <h2 class="text-2xl font-bold text-gray-900">전자서명법, 왜 바뀌었나?</h2>
+                <p class="text-gray-700">
+                    2020년 12월 10일, <strong>전자서명법이 전부개정</strong>되었습니다. 1999년 제정 이후 20년 넘게 유지되던
+                    <strong>'공인인증서 독점 체제'</strong>가 공식적으로 폐지된 것입니다.
+                </p>
+                <p class="text-gray-700">
+                    기존에는 공인인증서만이 법적으로 우월한 지위를 가졌습니다. 은행 거래, 정부 민원, 계약 체결까지
+                    모든 곳에서 공인인증서를 요구했고, ActiveX 설치와 복잡한 인증 절차는 국민적 불편으로 자리 잡았습니다.
+                </p>
+                <p class="text-gray-700">
+                    개정의 핵심은 명확합니다. <strong>"공인"이라는 특권을 없애고, 모든 전자서명에 동등한 법적 효력을 부여</strong>하는 것입니다.
+                </p>
+
+                <div class="bg-teal-50 border-l-4 border-teal-500 p-6 my-8 rounded-r-lg">
+                    <p class="text-teal-800 font-medium mb-2">핵심 변화 요약</p>
+                    <ul class="text-teal-700 list-disc pl-5 mb-0">
+                        <li><strong>"공인" 전자서명 제도 폐지</strong> — 공인인증서의 우월적 지위 소멸</li>
+                        <li><strong>모든 전자서명 동등</strong> — 카카오, 네이버, PASS, 모두사인 등 모두 동일한 법적 효력</li>
+                        <li><strong>전자서명인증사업자 평가·인정 제도</strong> 도입 — 신뢰성 확보를 위한 자율적 인증 체계</li>
+                        <li><strong>이용자 보호 강화</strong> — 손해배상 책임, 개인정보 보호 의무 명시</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">개정 전 vs 개정 후 비교</h2>
+
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700">구분</th>
+                                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700">개정 전 (1999~2020)</th>
+                                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700">개정 후 (2020.12~)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">전자서명 체계</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">공인 vs 사설 (이원화)</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">모든 전자서명 동등 (일원화)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">공인인증서</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">법적 추정력 부여</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">"공인" 지위 폐지, 일반 인증서와 동등</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">인증기관</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">정부 지정 공인인증기관</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">자율적 전자서명인증사업자</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">다양한 인증 수단</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">공인인증서 사실상 강제</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">카카오, 네이버, PASS, 생체인증 등 자유 선택</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">분쟁 시 입증</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">공인인증서 = 자동 추정</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">서명자가 진정성 입증 (방식 불문)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">전자서명법 핵심 조문 정리</h2>
+
+                <div class="space-y-4 my-6">
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-2">제3조 (전자서명의 효력)</h4>
+                        <p class="text-gray-600 text-sm mb-2">전자서명은 전자적 형태라는 이유만으로 서명, 서명날인 또는 기명날인으로서의 효력이 부인되지 않습니다.</p>
+                        <p class="text-gray-500 text-xs italic">→ 즉, 전자서명 = 자필서명 = 도장 날인과 동일한 효력</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-2">제3조 제2항 (차별 금지)</h4>
+                        <p class="text-gray-600 text-sm mb-2">전자서명의 효력은 <strong>전자서명의 종류와 관계없이 동등</strong>하게 인정됩니다.</p>
+                        <p class="text-gray-500 text-xs italic">→ 공인이든 사설이든, 어떤 플랫폼이든 법적 효력 동일</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-2">제3조 제3항 (강제 금지)</h4>
+                        <p class="text-gray-600 text-sm mb-2">누구든지 특정 전자서명의 사용을 강제하거나 특정 전자서명을 사용했다는 이유로 불이익을 줄 수 없습니다.</p>
+                        <p class="text-gray-500 text-xs italic">→ "공인인증서로만 계약해야 합니다"라는 요구는 위법</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">기업 계약 실무에서의 적용</h2>
+                <p class="text-gray-700">
+                    전자서명법 개정에 따라 기업 간 계약, 투자 계약, 근로계약 등을 전자서명으로 체결하는 것이 완전히 합법적입니다.
+                    대표적인 전자계약 플랫폼과 활용 사례를 살펴보겠습니다.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-3">전자계약 플랫폼</h4>
+                        <ul class="text-gray-600 text-sm list-disc pl-5">
+                            <li><strong>모두사인(Modusign)</strong> — 국내 점유율 1위</li>
+                            <li><strong>도큐사인(DocuSign)</strong> — 글로벌 전자서명</li>
+                            <li><strong>카카오페이 인증</strong> — 간편인증 기반</li>
+                            <li><strong>네이버 전자서명</strong> — 네이버 인증서 활용</li>
+                            <li><strong>이싸인(eSign)</strong> — 관공서 연계</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-3">활용 가능한 계약 유형</h4>
+                        <ul class="text-gray-600 text-sm list-disc pl-5">
+                            <li>투자계약서 (전환사채, 신주인수 등)</li>
+                            <li>근로계약서, 파견계약서</li>
+                            <li>매매계약서, 임대차계약서</li>
+                            <li>비밀유지계약서(NDA)</li>
+                            <li>주주간 계약서, 동업계약서</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
+                    <p class="text-blue-800 font-medium mb-2">전자서명의 증거력 확보 팁</p>
+                    <p class="text-blue-700 text-sm mb-3">전자서명 자체는 법적 효력이 있지만, 분쟁 시 진정성 입증을 위해 다음을 권장합니다.</p>
+                    <ul class="text-blue-700 text-sm list-disc pl-5 mb-0">
+                        <li><strong>타임스탬프</strong> — 서명 시점을 제3자가 증명</li>
+                        <li><strong>본인확인 절차</strong> — 휴대폰 인증, 신분증 확인 등 병행</li>
+                        <li><strong>서명 이력 보관</strong> — IP 주소, 서명 시간, 인증 기록 보존</li>
+                        <li><strong>원본 보관</strong> — 전자문서 원본을 안전하게 장기 보관</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">전자서명인증사업자 평가·인정 제도</h2>
+                <p class="text-gray-700">
+                    공인인증서 폐지 후 신뢰성을 어떻게 확보할까요? 개정법은 <strong>전자서명인증사업자 평가·인정 제도</strong>를 도입했습니다.
+                </p>
+
+                <div class="space-y-4 my-6">
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-2">자율적 평가 신청</h4>
+                        <p class="text-gray-600 text-sm">전자서명 서비스 제공자가 과학기술정보통신부에 자율적으로 평가를 신청합니다. 강제가 아닌 자율 제도입니다.</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-2">평가 기준</h4>
+                        <p class="text-gray-600 text-sm">기술적 안전성, 운영 신뢰성, 재정 건전성, 이용자 보호 체계 등을 종합 평가합니다. 평가 결과는 과기정통부 홈페이지에 공시됩니다.</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <h4 class="font-bold text-gray-900 mb-2">인정받은 사업자</h4>
+                        <p class="text-gray-600 text-sm">평가·인정을 받은 사업자의 서명은 보다 높은 신뢰성을 인정받습니다. 다만 인정받지 않은 서명도 법적 효력 자체는 동일합니다.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900">전자서명법과 전자문서법의 관계</h2>
+                <p class="text-gray-700">
+                    전자서명법과 함께 알아야 할 법률이 <strong>「전자문서 및 전자거래 기본법」</strong>입니다.
+                    전자서명법이 '서명'의 효력을 다룬다면, 전자문서법은 '문서' 자체의 효력을 다룹니다.
+                </p>
+
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700">구분</th>
+                                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700">전자서명법</th>
+                                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700">전자문서법</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">규율 대상</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">전자서명(서명 행위)</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">전자문서(문서 자체)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">핵심 효력</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">서명·날인과 동일 효력</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">종이 문서와 동일 효력</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">관련 조문</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">제3조</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">제4조</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-gray-700">
+                    두 법률이 결합되면, <strong>전자문서에 전자서명을 한 계약서는 종이에 도장을 찍은 계약서와 완전히 동일한 법적 효력</strong>을 갖습니다.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900">주의할 점: 전자서명의 한계</h2>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-6 rounded-r-lg">
+                    <p class="text-amber-800 font-medium mb-2">전자서명이 통하지 않는 경우</p>
+                    <p class="text-amber-700 text-sm mb-3">전자서명의 법적 효력은 '당사자 간 계약'에 적용됩니다. 다음의 경우는 별도 요건이 있으니 주의하세요.</p>
+                    <ul class="text-amber-700 text-sm list-disc pl-5 mb-0">
+                        <li><strong>등기소 제출 서류</strong> — 법인 변경등기 첨부서류는 인감 날인 + 인감증명서 필요</li>
+                        <li><strong>공증 필요 문서</strong> — 공증인 앞에서의 서명/날인 요구</li>
+                        <li><strong>부동산 등기</strong> — 등기신청 시 인감증명서 첨부 필수</li>
+                        <li><strong>일부 관공서 민원</strong> — 아직 전자서명을 인정하지 않는 절차 존재</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700">
+                    특히 <strong>법인 등기</strong> 관련 업무에서는 전자서명만으로 부족한 경우가 많습니다.
+                    전환사채 전환에 따른 증자 등기, 임원 변경등기 등에서는 의사록에 인감 날인과 인감증명서 첨부가 요구됩니다.
+                    자세한 내용은 <a href="registry-office-seal-requirements.html" class="text-primary hover:underline font-medium">등기소 제출 서류와 날인 요건</a> 글을 참고하세요.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900">실무 체크리스트</h2>
+
+                <div class="bg-white border-2 border-primary/20 rounded-xl p-6 my-8">
+                    <h3 class="text-lg font-bold text-primary mb-4">전자서명 계약 체결 시 확인사항</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3">
+                            <input type="checkbox" class="mt-1 w-4 h-4 text-primary rounded" disabled>
+                            <span class="text-gray-700 text-sm">계약 당사자 본인확인 절차 완료 (휴대폰 인증, 이메일 인증 등)</span>
+                        </label>
+                        <label class="flex items-start gap-3">
+                            <input type="checkbox" class="mt-1 w-4 h-4 text-primary rounded" disabled>
+                            <span class="text-gray-700 text-sm">전자서명 플랫폼의 서명 이력(감사 추적) 기능 확인</span>
+                        </label>
+                        <label class="flex items-start gap-3">
+                            <input type="checkbox" class="mt-1 w-4 h-4 text-primary rounded" disabled>
+                            <span class="text-gray-700 text-sm">서명 완료 문서의 원본 보관 및 다운로드 방법 확인</span>
+                        </label>
+                        <label class="flex items-start gap-3">
+                            <input type="checkbox" class="mt-1 w-4 h-4 text-primary rounded" disabled>
+                            <span class="text-gray-700 text-sm">등기소/관공서 제출이 필요한 경우 별도 인감 날인 서류 준비</span>
+                        </label>
+                        <label class="flex items-start gap-3">
+                            <input type="checkbox" class="mt-1 w-4 h-4 text-primary rounded" disabled>
+                            <span class="text-gray-700 text-sm">전자문서 보관 기간 설정 (계약서는 최소 5년 이상 권장)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Related Posts -->
+                <div class="border-t border-gray-200 pt-8 mt-12">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">관련 글</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <a href="registry-office-seal-requirements.html" class="block bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition">
+                            <span class="text-xs text-teal-600 font-medium">법률실무</span>
+                            <h4 class="text-gray-900 font-medium mt-1">등기소 제출 서류와 날인 요건 - 전자서명 계약서로 등기할 수 있을까?</h4>
+                        </a>
+                        <a href="convertible-bond-venture-checklist.html" class="block bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition">
+                            <span class="text-xs text-blue-600 font-medium">벤처투자</span>
+                            <h4 class="text-gray-900 font-medium mt-1">전환사채(CB) 투자로 벤처인증 받기 - 계약서 체크리스트</h4>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">계약서 검토가 필요하신가요?</h2>
+            <p class="text-gray-400 text-lg mb-8">전자서명 계약서의 법적 효력, 등기 절차, 투자 계약 검토까지 전문가가 도와드립니다.</p>
+            <a href="/#contact" class="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent/90 transition text-lg">
+                무료 상담 신청하기
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="../images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto bg-white rounded-lg p-1">
+                    <span class="text-white text-xl font-bold">Momentum Biz</span>
+                </div>
+                <p class="text-sm mb-4">잠재력을 발견하고 성장을 설계합니다.</p>
+                <p class="text-sm">&copy; 2024 Momentum Biz (에이룬컴퍼니). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+
+    <!-- Password Protection -->
+    <script>
+    (function() {
+        const pwd = document.documentElement.dataset.password;
+        if (!pwd) return;
+        const key = 'blog_auth_' + location.pathname;
+        if (sessionStorage.getItem(key) === 'true') return;
+        const input = prompt('비밀번호를 입력하세요');
+        if (input === pwd) { sessionStorage.setItem(key, 'true'); }
+        else { document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif"><p>비밀번호가 올바르지 않습니다. 페이지를 새로고침 해주세요.</p></div>'; }
+    })();
+    </script>
+</body>
+</html>
