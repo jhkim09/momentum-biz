@@ -224,7 +224,7 @@
                         <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">제안서 검토 및 피드백</span></li>
                         <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">수정 1회 포함</span></li>
                     </ul>
-                    <a href="#membership-contact" class="block text-center py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition">시작하기</a>
+                    <a href="#" class="kakao-plan-btn block text-center py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition" data-plan="베이직(무료)">카카오톡 상담 신청</a>
                 </div>
 
                 <!-- STANDARD (RECOMMENDED) -->
@@ -244,7 +244,7 @@
                         <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">인프라 서비스 할인 이용</span></li>
                         <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">유료교육 50% 할인수강</span></li>
                     </ul>
-                    <a href="#membership-contact" class="block text-center py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition">시작하기</a>
+                    <a href="#" class="kakao-plan-btn block text-center py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition" data-plan="스탠다드(4.4만원/월)">카카오톡 상담 신청</a>
                 </div>
 
                 <!-- PREMIUM -->
@@ -262,7 +262,7 @@
                         <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">유료교육 50% 할인수강</span></li>
                         <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">전담 매니저 배정</span></li>
                     </ul>
-                    <a href="#membership-contact" class="block text-center py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition">상담 신청</a>
+                    <a href="#" class="kakao-plan-btn block text-center py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition" data-plan="프리미엄(99만원~/월)">카카오톡 상담 신청</a>
                 </div>
             </div>
             <!-- 인프라 서비스 안내 -->
@@ -533,9 +533,26 @@
         });
 
         // Kakao Channel URL
+        let kakaoUrl = '';
         fetch('/api/config').then(r => r.json()).then(config => {
-            if (config.kakaoChannelUrl) document.getElementById('kakao-btn').href = config.kakaoChannelUrl;
+            if (config.kakaoChannelUrl) {
+                kakaoUrl = config.kakaoChannelUrl;
+                document.getElementById('kakao-btn').href = kakaoUrl;
+            }
         }).catch(() => {});
+
+        // 멤버십 플랜 버튼 → 카카오톡 상담 연결
+        document.querySelectorAll('.kakao-plan-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (kakaoUrl) {
+                    window.open(kakaoUrl, '_blank');
+                } else {
+                    alert('카카오톡 상담 채널 준비 중입니다. 하단 문의 폼을 이용해주세요.');
+                    document.getElementById('membership-contact').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
