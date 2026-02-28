@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJGXT7RTN5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BJGXT7RTN5');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컨설턴트 파트너 멤버십 | Momentum Biz</title>
+    <meta name="description" content="법인 컨설팅, 혼자 하지 마세요. 제안서 작성, 실무 검토, 계약 지원까지 모멘텀의 10년 내공이 당신의 백오피스가 됩니다.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="컨설턴트 파트너 멤버십 | Momentum Biz">
+    <meta property="og:description" content="법인 컨설팅, 혼자 하지 마세요. 제안서부터 계약까지, 모멘텀이 실무를 받쳐드립니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mmtum.co.kr/membership.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .gradient-hero { background: linear-gradient(135deg, #1e3a5f 0%, #0f2640 50%, #1a3555 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .scroll-animate { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scroll-animate.visible { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+
+        /* Pricing card highlight */
+        .pricing-recommended { border: 2px solid #06b6d4; box-shadow: 0 8px 32px rgba(6,182,212,0.15); }
+
+        /* FAQ */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-answer.open { max-height: 500px; }
+
+        /* Kakao float */
+        .kakao-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 999;
+            width: 60px; height: 60px; border-radius: 50%; background: #FEE500;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer; text-decoration: none;
+        }
+        .kakao-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
+        .kakao-float svg { width: 32px; height: 32px; }
+        .kakao-tooltip {
+            position: fixed; bottom: 92px; right: 24px; z-index: 998;
+            background: #333; color: #fff; padding: 8px 14px; border-radius: 8px;
+            font-size: 13px; white-space: nowrap; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+        }
+        .kakao-float:hover + .kakao-tooltip { opacity: 1; }
+        @media (max-width: 768px) {
+            .kakao-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+            .kakao-float svg { width: 28px; height: 28px; }
+            .kakao-tooltip { bottom: 76px; right: 16px; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="images/logo.jpg" alt="Momentum Biz" class="h-10 w-auto">
+                    <span class="text-xl sm:text-2xl font-bold text-primary">Momentum Biz</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">홈</a>
+                    <a href="/#services" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">서비스</a>
+                    <a href="membership.html" class="text-primary font-medium transition text-sm lg:text-base">파트너 멤버십</a>
+                    <a href="blog.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">블로그</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">FAQ</a>
+                    <a href="#membership-contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition text-sm lg:text-base">무료 진단 신청</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-1">
+                <a href="/" class="block py-2 text-gray-600 hover:text-primary">홈</a>
+                <a href="/#services" class="block py-2 text-gray-600 hover:text-primary">서비스</a>
+                <a href="membership.html" class="block py-2 text-primary font-medium">파트너 멤버십</a>
+                <a href="blog.html" class="block py-2 text-gray-600 hover:text-primary">블로그</a>
+                <a href="faq.html" class="block py-2 text-gray-600 hover:text-primary">FAQ</a>
+                <a href="#membership-contact" class="block py-2 text-primary font-medium">무료 진단 신청</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+    <!-- ========== HERO ========== -->
+    <section class="gradient-hero min-h-[70vh] sm:min-h-[80vh] flex items-center pt-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+            <div class="text-center">
+                <span class="inline-block bg-accent/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium mb-6">컨설턴트 파트너 멤버십</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    법인 컨설팅,<br>
+                    <span class="text-accent">혼자 하지 마세요</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    제안서 작성, 실무 검토, 계약 지원까지 —<br>
+                    모멘텀의 10년 내공이 당신의 <strong class="text-white">백오피스</strong>가 됩니다.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#membership-contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">
+                        무료 제안서 진단 받기
+                    </a>
+                    <a href="#pricing" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition text-lg">
+                        멤버십 요금 보기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PERSONA / PAIN ========== -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-animate">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">이런 분들을 위한 서비스입니다</h2>
+                <p class="text-gray-500">법인 컨설팅에 도전하거나 확장하고 싶은 모든 전문가</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover scroll-animate delay-100">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 mb-1">보험 설계사</h3>
+                            <p class="text-gray-500 text-sm">법인 영업을 시작하고 싶은데 제안서와 실무가 막막한 분</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover scroll-animate delay-200">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 mb-1">세무사 사무장</h3>
+                            <p class="text-gray-500 text-sm">세무 실무는 강한데 컨설팅 제안서 작성이 약한 분</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover scroll-animate delay-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 mb-1">독립 컨설턴트</h3>
+                            <p class="text-gray-500 text-sm">영업력은 있는데 실무 백업이 없어 계약을 놓치는 분</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover scroll-animate delay-400">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 mb-1">법인 영업 경험자</h3>
+                            <p class="text-gray-500 text-sm">경험은 있지만 체계적인 시스템과 전문가 네트워크가 필요한 분</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section id="pricing" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-animate">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">멤버십 요금</h2>
+                <p class="text-gray-500">당신의 법인 영업 단계에 맞는 플랜을 선택하세요</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8 items-start">
+                <!-- BASIC -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200 scroll-animate delay-100">
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">베이직</h3>
+                    <p class="text-gray-500 text-sm mb-4">법인 영업 입문자를 위한 기본 지원</p>
+                    <div class="mb-6">
+                        <span class="text-3xl sm:text-4xl font-bold text-gray-900">9.9</span>
+                        <span class="text-gray-500">만원/월</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">법인 이슈 주간 리포트</span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">실무 Q&A 단톡방 참여</span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">월 1회 제안서 템플릿 제공</span></li>
+                    </ul>
+                    <a href="#membership-contact" class="block text-center py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition">시작하기</a>
+                </div>
+
+                <!-- STANDARD (RECOMMENDED) -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg pricing-recommended relative scroll-animate delay-200">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1 rounded-full">추천</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">스탠다드</h3>
+                    <p class="text-gray-500 text-sm mb-4">실전 제안서 작성 + 실무 첨삭 지원</p>
+                    <div class="mb-6">
+                        <span class="text-3xl sm:text-4xl font-bold text-gray-900">29</span>
+                        <span class="text-gray-500">만원/월</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">베이직 전체 포함</span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700"><strong>제안서 로직 설계 (월 2회)</strong></span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700"><strong>문구 수정 및 첨삭</strong></span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">실무 체크리스트 제공</span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">1:1 카카오톡 상담</span></li>
+                    </ul>
+                    <a href="#membership-contact" class="block text-center py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition">시작하기</a>
+                </div>
+
+                <!-- PREMIUM -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200 scroll-animate delay-300">
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">프리미엄</h3>
+                    <p class="text-gray-500 text-sm mb-4">대리 작성 + 미팅 코칭 + 실무 집행</p>
+                    <div class="mb-6">
+                        <span class="text-3xl sm:text-4xl font-bold text-gray-900">99</span>
+                        <span class="text-gray-500">만원~/월</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">스탠다드 전체 포함</span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700"><strong>제안서 대리 작성</strong></span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700"><strong>미팅 전 1:1 코칭</strong></span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700"><strong>계약 후 실무 집행 지원</strong></span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">전문 세무/노무법인 협업</span></li>
+                        <li class="flex items-start gap-2 text-sm"><svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700">전담 매니저 배정</span></li>
+                    </ul>
+                    <a href="#membership-contact" class="block text-center py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition">상담 신청</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-animate">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">이렇게 진행됩니다</h2>
+                <p class="text-gray-500">복잡한 절차 없이, 4단계로 시작하세요</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center scroll-animate delay-100">
+                    <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                    <h4 class="font-bold text-gray-900 mb-2">무료 진단 신청</h4>
+                    <p class="text-gray-500 text-sm">현재 제안서나 상담 내용을 보내주세요</p>
+                </div>
+                <div class="text-center scroll-animate delay-200">
+                    <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                    <h4 class="font-bold text-gray-900 mb-2">24시간 내 분석</h4>
+                    <p class="text-gray-500 text-sm">가치 방정식 기반 진단 리포트를 보내드립니다</p>
+                </div>
+                <div class="text-center scroll-animate delay-300">
+                    <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                    <h4 class="font-bold text-gray-900 mb-2">멤버십 시작</h4>
+                    <p class="text-gray-500 text-sm">플랜을 선택하면 즉시 실무 지원이 시작됩니다</p>
+                </div>
+                <div class="text-center scroll-animate delay-400">
+                    <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+                    <h4 class="font-bold text-gray-900 mb-2">계약 성사</h4>
+                    <p class="text-gray-500 text-sm">계약 성사 후에도 실무 집행과 사후관리 지원</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GUARANTEE ========== -->
+    <section class="py-14 sm:py-16 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-6">
+                <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">90일 성과 보장</h2>
+            <p class="text-gray-300 text-lg mb-3 max-w-2xl mx-auto leading-relaxed">
+                90일 안에 멤버십 비용 이상의 계약을 성사시키지 못하면,<br class="hidden sm:block">
+                잔여 기간 <strong class="text-accent">100% 환불</strong>해 드립니다.
+            </p>
+            <p class="text-gray-500 text-sm">* 스탠다드/프리미엄 플랜 대상, 최소 월 2회 이상 제안서 제출 조건</p>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="py-16 sm:py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-animate">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">자주 묻는 질문</h2>
+            </div>
+            <div class="space-y-4 scroll-animate">
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 sm:p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-medium text-gray-900 pr-4">기존 고객과 영역이 겹치지 않나요?</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-5 sm:px-6 pb-5 sm:pb-6 text-gray-600 text-sm leading-relaxed">아니요. 파트너 멤버십은 모멘텀의 고객과 겹치지 않도록 영역을 조율합니다. 파트너의 독립적인 고객 확보를 지원하는 것이 목적이며, 필요시 협업 기회도 제공합니다.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 sm:p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-medium text-gray-900 pr-4">어떤 분야의 법인 컨설팅을 지원하나요?</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-5 sm:px-6 pb-5 sm:pb-6 text-gray-600 text-sm leading-relaxed">경영, 재무, 인사/복지, EAP, 단체보험, 전기요금 절감, 벤처인증, 경정청구 등 모멘텀의 전체 서비스 라인업에 대한 실무 지원이 가능합니다. 특히 경정청구와 EAP는 계약 확률이 높은 영역입니다.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 sm:p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-medium text-gray-900 pr-4">최소 계약 기간이 있나요?</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-5 sm:px-6 pb-5 sm:pb-6 text-gray-600 text-sm leading-relaxed">베이직은 월 단위 자유 해지 가능합니다. 스탠다드와 프리미엄은 최소 3개월 계약이며, 90일 성과 보장이 적용됩니다. 성과가 나오지 않으면 잔여 기간 전액 환불됩니다.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 sm:p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-medium text-gray-900 pr-4">무료 진단만 받아도 되나요?</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-5 sm:px-6 pb-5 sm:pb-6 text-gray-600 text-sm leading-relaxed">네, 물론입니다. 무료 진단은 가입 의무 없이 제공됩니다. 진단 결과를 보시고 멤버십이 필요하다고 판단되시면 그때 선택하시면 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="membership-contact" class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 scroll-animate">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">지금 제안서를 보내주세요</h2>
+                <p class="text-gray-500 text-lg">무료로 진단해드립니다. 24시간 내 리포트 발송.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg scroll-animate">
+                <form id="membership-form" class="space-y-4 sm:space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">성함</label>
+                            <input type="text" name="name" id="m-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">연락처</label>
+                            <input type="tel" name="phone" id="m-phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">현재 직종/소속</label>
+                        <input type="text" name="company" id="m-company" placeholder="예: 보험 설계사 / 세무사 사무장 / 독립 컨설턴트" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">관심 플랜</label>
+                        <select name="plan" id="m-plan" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition">
+                            <option value="무료진단">무료 제안서 진단만</option>
+                            <option value="베이직">베이직 (월 9.9만원)</option>
+                            <option value="스탠다드">스탠다드 (월 29만원) - 추천</option>
+                            <option value="프리미엄">프리미엄 (월 99만원~)</option>
+                            <option value="상담후결정">상담 후 결정</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">현재 상황 및 문의 내용</label>
+                        <textarea name="message" id="m-message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition resize-none" placeholder="법인 영업 경험, 현재 고민, 또는 진단받고 싶은 제안서 내용을 자유롭게 적어주세요."></textarea>
+                    </div>
+                    <button type="submit" id="m-submit-btn" class="w-full bg-accent text-white py-4 rounded-lg font-semibold hover:bg-accent/90 transition text-lg">
+                        무료 진단 신청하기
+                    </button>
+                </form>
+                <div id="m-success-message" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">신청 완료!</h3>
+                    <p class="text-gray-600">24시간 내 진단 리포트를 보내드리겠습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 sm:py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <img src="images/logo.jpg" alt="Momentum Biz" class="h-8 w-auto bg-white rounded p-0.5">
+                    <span class="text-white font-bold">Momentum Biz</span>
+                </div>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="/" class="hover:text-white transition">홈</a>
+                    <a href="/#services" class="hover:text-white transition">서비스</a>
+                    <a href="blog.html" class="hover:text-white transition">블로그</a>
+                    <span>070-8064-3304</span>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-6 pt-6 text-center text-sm">
+                <p>&copy; 2025 Momentum Biz (에이룬컴퍼니). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Kakao Channel Floating Button -->
+    <a id="kakao-btn" href="#" target="_blank" rel="noopener" class="kakao-float" aria-label="카카오톡 상담">
+        <svg viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.86 5.22 4.65 6.6-.15.53-.96 3.41-1 3.56 0 .11.04.22.13.28a.27.27 0 00.3-.01c.41-.28 4.73-3.12 5.49-3.64.47.06.95.1 1.43.1 5.52 0 10-3.58 10-7.99C22 6.58 17.52 3 12 3z"/></svg>
+    </a>
+    <div class="kakao-tooltip">실시간 카카오톡 상담</div>
+
+    <script>
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                const isOpen = answer.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = '');
+                // Toggle current
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Membership Form
+        const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/b1aiy7t7ciopehqg59o1hmcqvqxzhfzd';
+        document.getElementById('membership-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('m-submit-btn');
+            btn.disabled = true;
+            btn.textContent = '전송 중...';
+            const formData = {
+                name: document.getElementById('m-name').value,
+                phone: document.getElementById('m-phone').value,
+                company: document.getElementById('m-company').value,
+                plan: document.getElementById('m-plan').value,
+                message: document.getElementById('m-message').value,
+                submitted_at: new Date().toISOString(),
+                source: 'mmtum.co.kr/membership'
+            };
+            try {
+                await fetch(MAKE_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+                document.getElementById('membership-form').classList.add('hidden');
+                document.getElementById('m-success-message').classList.remove('hidden');
+            } catch (error) {
+                alert('전송 중 오류가 발생했습니다. 전화로 문의해주세요: 070-8064-3304');
+                btn.disabled = false;
+                btn.textContent = '무료 진단 신청하기';
+            }
+        });
+
+        // Kakao Channel URL
+        fetch('/api/config').then(r => r.json()).then(config => {
+            if (config.kakaoChannelUrl) document.getElementById('kakao-btn').href = config.kakaoChannelUrl;
+        }).catch(() => {});
+    </script>
+</body>
+</html>
