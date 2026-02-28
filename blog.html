@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="dark" lang="ko">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJGXT7RTN5"></script>
@@ -26,15 +26,19 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         primary: '#1e3a5f',
                         secondary: '#3b82f6',
                         accent: '#06b6d4',
+                        'background-dark': '#121416',
+                        'surface-dark': '#1e2124',
+                        'border-dark': '#2c3035',
                     }
                 }
             }
@@ -44,12 +48,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
     </style>
 
     <!-- Schema.org Blog -->
@@ -68,528 +71,481 @@
     }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-background-dark text-gray-100 font-sans antialiased overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="/" class="flex items-center space-x-2">
-                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto">
-                    <span class="text-2xl font-bold text-primary">Momentum Biz</span>
+    <header class="sticky top-0 z-50 w-full bg-background-dark/90 backdrop-blur-md border-b border-border-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="images/logo.jpg" alt="Momentum Biz" class="h-10 w-auto rounded">
+                    <span class="text-xl font-bold text-white">Momentum Biz</span>
                 </a>
-                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-                    <a href="/#services" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">서비스</a>
-                    <a href="/#about" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">회사소개</a>
-                    <a href="membership.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">파트너 멤버십</a>
-                    <a href="blog.html" class="text-primary font-medium text-sm lg:text-base">블로그</a>
-                    <a href="faq.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">FAQ</a>
-                    <a href="/#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition text-sm lg:text-base">무료 진단 신청</a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="/" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">홈</a>
+                    <a href="/#services" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">서비스</a>
+                    <a href="membership.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">파트너 멤버십</a>
+                    <a href="blog.html" class="text-sm font-medium text-white transition-colors">블로그</a>
+                    <a href="faq.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="/#contact" class="bg-secondary hover:bg-secondary/90 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all shadow-sm hidden sm:block">무료 진단 신청</a>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white">
+                        <span class="material-symbols-outlined text-2xl">menu</span>
+                    </button>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-1">
-                <a href="/#services" class="block py-2 text-gray-600 hover:text-primary">서비스</a>
-                <a href="/#about" class="block py-2 text-gray-600 hover:text-primary">회사소개</a>
-                <a href="membership.html" class="block py-2 text-gray-600 hover:text-primary">파트너 멤버십</a>
-                <a href="blog.html" class="block py-2 text-primary font-medium">블로그</a>
-                <a href="faq.html" class="block py-2 text-gray-600 hover:text-primary">FAQ</a>
-                <a href="/#contact" class="block py-2 text-primary font-medium">무료 진단 신청</a>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-1 border-t border-border-dark pt-3">
+                <a href="/" class="block py-2 text-gray-400 hover:text-white transition-colors">홈</a>
+                <a href="/#services" class="block py-2 text-gray-400 hover:text-white transition-colors">서비스</a>
+                <a href="membership.html" class="block py-2 text-gray-400 hover:text-white transition-colors">파트너 멤버십</a>
+                <a href="blog.html" class="block py-2 text-white font-medium">블로그</a>
+                <a href="faq.html" class="block py-2 text-gray-400 hover:text-white transition-colors">FAQ</a>
+                <a href="/#contact" class="block py-2 text-secondary font-medium">무료 진단 신청</a>
             </div>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="bg-primary pt-24 pb-16">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">블로그</h1>
-            <p class="text-xl text-gray-300">경영 컨설팅 인사이트와 실무 가이드</p>
         </div>
     </header>
 
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary/20 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">블로그</h1>
+            <p class="text-lg text-gray-400">경영 컨설팅 인사이트와 실무 가이드</p>
+        </div>
+    </section>
+
     <!-- Blog Posts -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Post: 전자상거래 신규 법인 정부지원사업 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-blue-400/60">shopping_cart</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full mb-3">정부지원</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/ecommerce-startup-government-support.html" class="hover:text-primary transition">2026년 전자상거래 신규 법인 정부지원사업 총정리</a>
+                    <span class="inline-block bg-blue-500/10 text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">정부지원</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/ecommerce-startup-government-support.html" class="hover:text-secondary transition">2026년 전자상거래 신규 법인 정부지원사업 총정리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">전자상거래 신규 법인이 즉시 신청할 수 있는 정부지원사업 총정리. 소상공인 정책자금, 초기창업패키지, 서울시 창업기업자금까지 우선순위별 실행 로드맵을 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">전자상거래 신규 법인이 즉시 신청할 수 있는 정부지원사업 총정리. 소상공인 정책자금, 초기창업패키지, 서울시 창업기업자금까지 우선순위별 실행 로드맵을 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.26</span>
-                        <a href="blog/ecommerce-startup-government-support.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/ecommerce-startup-government-support.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 전자서명법 핵심정리 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-teal-600 to-cyan-700 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-teal-500/20 to-cyan-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-teal-400/60">shield</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-teal-100 text-teal-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법률실무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/electronic-signature-act-guide.html" class="hover:text-primary transition">전자서명법 핵심정리 - 2020년 전부개정 이후 달라진 것들</a>
+                    <span class="inline-block bg-teal-500/10 text-teal-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법률실무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/electronic-signature-act-guide.html" class="hover:text-secondary transition">전자서명법 핵심정리 - 2020년 전부개정 이후 달라진 것들</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">공인인증서 폐지 후 모든 전자서명이 동등한 법적 효력을 가집니다. 전자서명법 핵심 조문, 개정 전후 비교, 기업 계약 실무 적용 방법을 정리합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">공인인증서 폐지 후 모든 전자서명이 동등한 법적 효력을 가집니다. 전자서명법 핵심 조문, 개정 전후 비교, 기업 계약 실무 적용 방법을 정리합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.24</span>
-                        <a href="blog/electronic-signature-act-guide.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/electronic-signature-act-guide.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 등기소 제출 서류와 날인 요건 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-slate-700 to-gray-800 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-slate-500/20 to-gray-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-gray-400/60">account_balance</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법률실무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/registry-office-seal-requirements.html" class="hover:text-primary transition">등기소 제출 서류와 날인 요건 - 전자서명 계약서로 등기할 수 있을까?</a>
+                    <span class="inline-block bg-gray-500/10 text-gray-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법률실무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/registry-office-seal-requirements.html" class="hover:text-secondary transition">등기소 제출 서류와 날인 요건 - 전자서명 계약서로 등기할 수 있을까?</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">전자서명 계약서는 유효하지만 등기소에는 인감 날인이 필요합니다. 법인 변경등기, 증자등기, 전환사채 전환 시 필요한 날인 서류와 실무 절차를 정리합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">전자서명 계약서는 유효하지만 등기소에는 인감 날인이 필요합니다. 법인 변경등기, 증자등기, 전환사채 전환 시 필요한 날인 서류와 실무 절차를 정리합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.24</span>
-                        <a href="blog/registry-office-seal-requirements.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/registry-office-seal-requirements.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 전환사채(CB) 투자로 벤처인증 받기 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-blue-400/60">trending_up</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full mb-3">벤처투자</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/convertible-bond-venture-checklist.html" class="hover:text-primary transition">전환사채(CB) 투자로 벤처인증 받기 - 계약서 체크리스트</a>
+                    <span class="inline-block bg-blue-500/10 text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">벤처투자</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/convertible-bond-venture-checklist.html" class="hover:text-secondary transition">전환사채(CB) 투자로 벤처인증 받기 - 계약서 체크리스트</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">전환사채 인수계약서 핵심 조항과 벤처인증 투자증빙 실무 가이드. 전환가격 설정, Put Option, 지연손해금 등 투자자 보호장치 체크리스트를 제공합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">전환사채 인수계약서 핵심 조항과 벤처인증 투자증빙 실무 가이드. 전환가격 설정, Put Option, 지연손해금 등 투자자 보호장치 체크리스트를 제공합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.24</span>
-                        <a href="blog/convertible-bond-venture-checklist.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/convertible-bond-venture-checklist.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 사망 손해배상금 자산관리 전략 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-indigo-400/60">account_balance_wallet</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full mb-3">자산관리</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/death-compensation-asset-management.html" class="hover:text-primary transition">사망 손해배상금 수령 후 자산관리 전략 - 보험 포트폴리오와 가업승계</a>
+                    <span class="inline-block bg-indigo-500/10 text-indigo-400 text-xs font-medium px-3 py-1 rounded-full mb-3">자산관리</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/death-compensation-asset-management.html" class="hover:text-secondary transition">사망 손해배상금 수령 후 자산관리 전략 - 보험 포트폴리오와 가업승계</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">대규모 사망 손해배상금을 수령한 유족의 체계적 자산관리 전략. 긴급예비자금, 보험 포트폴리오 설계, 가업승계 전략, 자녀 교육자금까지 종합 재무설계 가이드를 제공합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">대규모 사망 손해배상금을 수령한 유족의 체계적 자산관리 전략. 긴급예비자금, 보험 포트폴리오 설계, 가업승계 전략, 자녀 교육자금까지 종합 재무설계 가이드를 제공합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.19</span>
-                        <a href="blog/death-compensation-asset-management.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/death-compensation-asset-management.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 사망 손해배상금 상속세 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">receipt_long</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/death-compensation-inheritance-tax.html" class="hover:text-primary transition">사망 손해배상금 20억, 상속세 과세 여부와 신고 방법 총정리</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/death-compensation-inheritance-tax.html" class="hover:text-secondary transition">사망 손해배상금 20억, 상속세 과세 여부와 신고 방법 총정리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">사망사고 손해배상금의 상속세 과세 여부를 항목별로 분석합니다. 위자료, 일실이익, 지연이자의 세법상 구분, 소송 미확정 재산의 신고 절차, 배우자공제 활용 절세 방안까지 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">사망사고 손해배상금의 상속세 과세 여부를 항목별로 분석합니다. 위자료, 일실이익, 지연이자의 세법상 구분, 소송 미확정 재산의 신고 절차, 배우자공제 활용 절세 방안까지 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.19</span>
-                        <a href="blog/death-compensation-inheritance-tax.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/death-compensation-inheritance-tax.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 임원 중임등기와 가지급금 해결 전략 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">receipt_long</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/cable-manufacturer-corporate-governance.html" class="hover:text-primary transition">임원 중임등기와 가지급금 해결 전략 - 제조업 법인 긴급 가이드</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/cable-manufacturer-corporate-governance.html" class="hover:text-secondary transition">임원 중임등기와 가지급금 해결 전략 - 제조업 법인 긴급 가이드</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">임원 임기만료 D-10일, 중임등기와 주총을 동시에 진행하면서 가지급금 2.1억까지 해결하는 실무 전략. 비상장법인 주권발행 없이 주식증여가 가능한지 법적 근거를 명확히 정리합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">임원 임기만료 D-10일, 중임등기와 주총을 동시에 진행하면서 가지급금 2.1억까지 해결하는 실무 전략. 비상장법인 주권발행 없이 주식증여가 가능한지 법적 근거를 명확히 정리합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.13</span>
-                        <a href="blog/cable-manufacturer-corporate-governance.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/cable-manufacturer-corporate-governance.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 플라스틱 사출 제조업 종합 재무분석 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-rose-500/20 to-red-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-rose-400/60">bar_chart</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-rose-100 text-rose-600 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/plastic-manufacturer-financial-analysis.html" class="hover:text-primary transition">플라스틱 사출 제조업 종합 재무분석 - 적자 턴어라운드와 CEO 리스크 관리</a>
+                    <span class="inline-block bg-rose-500/10 text-rose-400 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/plastic-manufacturer-financial-analysis.html" class="hover:text-secondary transition">플라스틱 사출 제조업 종합 재무분석 - 적자 턴어라운드와 CEO 리스크 관리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">매출 100억대 플라스틱 사출 제조업체의 2022년 20억 적자에서 2024년 영업이익 7억 흑자 전환까지의 턴어라운드 사례. 신용등급 회복, CEO 리스크 대비, 법인보험 설계 전략을 분석합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">매출 100억대 플라스틱 사출 제조업체의 2022년 20억 적자에서 2024년 영업이익 7억 흑자 전환까지의 턴어라운드 사례. 신용등급 회복, CEO 리스크 대비, 법인보험 설계 전략을 분석합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.11</span>
-                        <a href="blog/plastic-manufacturer-financial-analysis.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/plastic-manufacturer-financial-analysis.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 식품제조 법인 설립 사업목적 정리 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">science</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법인설립</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/food-manufacturing-corporation-setup.html" class="hover:text-primary transition">식품제조 법인 설립 사업목적 정리 가이드 - 커큐민, 올리브유, 아미노산</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법인설립</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/food-manufacturing-corporation-setup.html" class="hover:text-secondary transition">식품제조 법인 설립 사업목적 정리 가이드 - 커큐민, 올리브유, 아미노산</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">식품제조가공업 법인 설립 시 사업목적(정관) 작성법 완벽 가이드. 등기 적합 사업목적 분류, 중복 제거, 인허가 매핑, 시흥 산단 공장 매입 절차와 필요서류까지 총정리합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">식품제조가공업 법인 설립 시 사업목적(정관) 작성법 완벽 가이드. 등기 적합 사업목적 분류, 중복 제거, 인허가 매핑, 시흥 산단 공장 매입 절차와 필요서류까지 총정리합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.09</span>
-                        <a href="blog/food-manufacturing-corporation-setup.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/food-manufacturing-corporation-setup.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 전기케이블 제조업 가업승계 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-indigo-400/60">family_restroom</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full mb-3">가업승계</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/cable-manufacturer-succession-strategy.html" class="hover:text-primary transition">전기케이블 제조업 가업승계 전략 - 63세 CEO의 15억 이익잉여금 관리법</a>
+                    <span class="inline-block bg-indigo-500/10 text-indigo-400 text-xs font-medium px-3 py-1 rounded-full mb-3">가업승계</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/cable-manufacturer-succession-strategy.html" class="hover:text-secondary transition">전기케이블 제조업 가업승계 전략 - 63세 CEO의 15억 이익잉여금 관리법</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">경영 15년차 전기케이블 제조업체의 가업승계 전략을 분석합니다. 63세 대표이사의 퇴직금 설계, 15억 이익잉여금 관리, CEO 유고 리스크 대비 방안을 제시합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">경영 15년차 전기케이블 제조업체의 가업승계 전략을 분석합니다. 63세 대표이사의 퇴직금 설계, 15억 이익잉여금 관리, CEO 유고 리스크 대비 방안을 제시합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.06</span>
-                        <a href="blog/cable-manufacturer-succession-strategy.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/cable-manufacturer-succession-strategy.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 세무조정계산서 분석 경영컨설팅 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-rose-500/20 to-red-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-rose-400/60">analytics</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-rose-100 text-rose-600 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/consulting-firm-financial-analysis.html" class="hover:text-primary transition">법인 세무조정계산서 분석으로 보는 경영컨설팅 회사의 재무 개선 전략</a>
+                    <span class="inline-block bg-rose-500/10 text-rose-400 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/consulting-firm-financial-analysis.html" class="hover:text-secondary transition">법인 세무조정계산서 분석으로 보는 경영컨설팅 회사의 재무 개선 전략</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">자본잠식 상태의 경영컨설팅 법인 사례를 통해 세무조정계산서 분석 방법, AI 활용 매출 확대 전략, 임원퇴직금 설계까지 턴어라운드 전략을 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">자본잠식 상태의 경영컨설팅 법인 사례를 통해 세무조정계산서 분석 방법, AI 활용 매출 확대 전략, 임원퇴직금 설계까지 턴어라운드 전략을 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.04</span>
-                        <a href="blog/consulting-firm-financial-analysis.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/consulting-firm-financial-analysis.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 법인 감자 가이드 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">receipt_long</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/capital-reduction-guide.html" class="hover:text-primary transition">법인 감자(자본금 감소) 완벽 가이드: 10억원 감자 시 세금과 절차</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/capital-reduction-guide.html" class="hover:text-secondary transition">법인 감자(자본금 감소) 완벽 가이드: 10억원 감자 시 세금과 절차</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">유상감자와 무상감자의 차이, 의제배당 과세, 양도소득세, 감자 절차와 등기, 배당/자기주식 취득과의 비교까지 10억원 감자 검토 시 알아야 할 모든 것을 정리했습니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">유상감자와 무상감자의 차이, 의제배당 과세, 양도소득세, 감자 절차와 등기, 배당/자기주식 취득과의 비교까지 10억원 감자 검토 시 알아야 할 모든 것을 정리했습니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.03</span>
-                        <a href="blog/capital-reduction-guide.html" class="text-primary font-medium hover:underline">자세히 보기 &rarr;</a>
+                        <a href="blog/capital-reduction-guide.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: IT 스타트업 고용 세액공제 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">receipt_long</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/employment-tax-credit-startup.html" class="hover:text-primary transition">IT 스타트업 고용 확대 시 세액공제와 정부지원금 총정리</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/employment-tax-credit-startup.html" class="hover:text-secondary transition">IT 스타트업 고용 확대 시 세액공제와 정부지원금 총정리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">직원 5명에서 10명으로 늘린 창업 2년차 IT 스타트업이 받을 수 있는 통합고용세액공제(3년간 2억원+), 청년일자리도약장려금, TIPS, 벤처인증 혜택을 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">직원 5명에서 10명으로 늘린 창업 2년차 IT 스타트업이 받을 수 있는 통합고용세액공제(3년간 2억원+), 청년일자리도약장려금, TIPS, 벤처인증 혜택을 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.02.02</span>
-                        <a href="blog/employment-tax-credit-startup.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/employment-tax-credit-startup.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 영농조합법인 가업승계 절세 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-green-400/60">bar_chart</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-green-100 text-green-600 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/agricultural-corporation-succession.html" class="hover:text-primary transition">20년 영농조합법인의 가업승계와 절세 전략</a>
+                    <span class="inline-block bg-green-500/10 text-green-400 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/agricultural-corporation-succession.html" class="hover:text-secondary transition">20년 영농조합법인의 가업승계와 절세 전략</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">20년 이상 운영된 영농조합법인의 미처분이익잉여금 10억 원 처리, 임원퇴직금 재원 마련, AI 활용 수출서류 자동화, 가업승계 전략을 종합 분석합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">20년 이상 운영된 영농조합법인의 미처분이익잉여금 10억 원 처리, 임원퇴직금 재원 마련, AI 활용 수출서류 자동화, 가업승계 전략을 종합 분석합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.30</span>
-                        <a href="blog/agricultural-corporation-succession.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/agricultural-corporation-succession.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 창업 초기 기술기업 경영 컨설팅 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-rose-500/20 to-red-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-rose-400/60">analytics</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-rose-100 text-rose-600 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/early-stage-tech-startup-consulting.html" class="hover:text-primary transition">창업 초기 기술기업의 경영 컨설팅: 적자전환 대응과 리스크 관리</a>
+                    <span class="inline-block bg-rose-500/10 text-rose-400 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/early-stage-tech-startup-consulting.html" class="hover:text-secondary transition">창업 초기 기술기업의 경영 컨설팅: 적자전환 대응과 리스크 관리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">업력 2~3년차 기술 스타트업이 흔히 겪는 적자전환, 임원퇴직금 미비, 핵심인력 의존 문제를 분석하고 AI 활용, 보험 설계, 벤처인증 등 종합 솔루션을 제시합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">업력 2~3년차 기술 스타트업이 흔히 겪는 적자전환, 임원퇴직금 미비, 핵심인력 의존 문제를 분석하고 AI 활용, 보험 설계, 벤처인증 등 종합 솔루션을 제시합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.30</span>
-                        <a href="blog/early-stage-tech-startup-consulting.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/early-stage-tech-startup-consulting.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 건축 엔지니어링 스타트업 종합 컨설팅 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-indigo-400/60">domain</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full mb-3">종합컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/startup-engineering-consulting.html" class="hover:text-primary transition">건축 엔지니어링 스타트업 종합 컨설팅: 적자전환 기업의 턴어라운드 전략</a>
+                    <span class="inline-block bg-indigo-500/10 text-indigo-400 text-xs font-medium px-3 py-1 rounded-full mb-3">종합컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/startup-engineering-consulting.html" class="hover:text-secondary transition">건축 엔지니어링 스타트업 종합 컨설팅: 적자전환 기업의 턴어라운드 전략</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">업력 2년차 건축 엔지니어링 스타트업의 적자전환 대응 전략. 벤처인증, 임원퇴직금 설계, 비용구조 개선, Key-man 리스크 관리까지 종합 컨설팅 사례를 소개합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">업력 2년차 건축 엔지니어링 스타트업의 적자전환 대응 전략. 벤처인증, 임원퇴직금 설계, 비용구조 개선, Key-man 리스크 관리까지 종합 컨설팅 사례를 소개합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.30</span>
-                        <a href="blog/startup-engineering-consulting.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/startup-engineering-consulting.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 영농조합법인 종합 컨설팅 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-green-400/60">bar_chart</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-green-100 text-green-600 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/agricultural-corporation-consulting.html" class="hover:text-primary transition">영농조합법인 10억 잉여금, 가업승계와 임원퇴직금 설계 전략</a>
+                    <span class="inline-block bg-green-500/10 text-green-400 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/agricultural-corporation-consulting.html" class="hover:text-secondary transition">영농조합법인 10억 잉여금, 가업승계와 임원퇴직금 설계 전략</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">23년 업력 영농조합법인의 미처분이익잉여금 10억 원 처리, 임원퇴직금 5억 원 설계, AI 활용 농산물 유통 효율화, 가업승계 전략을 종합 분석합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">23년 업력 영농조합법인의 미처분이익잉여금 10억 원 처리, 임원퇴직금 5억 원 설계, AI 활용 농산물 유통 효율화, 가업승계 전략을 종합 분석합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.30</span>
-                        <a href="blog/agricultural-corporation-consulting.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/agricultural-corporation-consulting.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 탄소절감 ISO 인증 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">eco</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">환경인증</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/carbon-reduction-iso-certification.html" class="hover:text-primary transition">탄소절감 ISO 인증 총정리: 제조업 필수 환경인증 가이드</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">환경인증</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/carbon-reduction-iso-certification.html" class="hover:text-secondary transition">탄소절감 ISO 인증 총정리: 제조업 필수 환경인증 가이드</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">ISO 14001, ISO 50001, ISO 14064, ISO 14067 비교분석. 전기/물 다소비 제조업을 위한 환경인증 로드맵과 ESG 대응, 대기업 납품 가점 효과를 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">ISO 14001, ISO 50001, ISO 14064, ISO 14067 비교분석. 전기/물 다소비 제조업을 위한 환경인증 로드맵과 ESG 대응, 대기업 납품 가점 효과를 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.28</span>
-                        <a href="blog/carbon-reduction-iso-certification.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/carbon-reduction-iso-certification.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 건강기능식품 창업지원사업 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-green-400/60">rocket_launch</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-green-100 text-green-600 text-xs font-medium px-3 py-1 rounded-full mb-3">창업지원</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/health-food-startup-support.html" class="hover:text-primary transition">2025-2026 건강기능식품 제조업 창업지원사업 총정리</a>
+                    <span class="inline-block bg-green-500/10 text-green-400 text-xs font-medium px-3 py-1 rounded-full mb-3">창업지원</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/health-food-startup-support.html" class="hover:text-secondary transition">2025-2026 건강기능식품 제조업 창업지원사업 총정리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">건강기능식품 제조업 법인 창업을 위한 정부지원사업 완벽 가이드. 예비창업패키지부터 HACCP 인증 지원까지, 지속적인 공고 모니터링 방법도 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">건강기능식품 제조업 법인 창업을 위한 정부지원사업 완벽 가이드. 예비창업패키지부터 HACCP 인증 지원까지, 지속적인 공고 모니터링 방법도 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.28</span>
-                        <a href="blog/health-food-startup-support.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/health-food-startup-support.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 3년 연속 결손 법인 컨설팅 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-rose-500/20 to-red-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-rose-400/60">analytics</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-rose-100 text-rose-600 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/deficit-corporation-consulting.html" class="hover:text-primary transition">3년 연속 결손 법인, 매출 확대와 현금흐름 관리로 돌파하기</a>
+                    <span class="inline-block bg-rose-500/10 text-rose-400 text-xs font-medium px-3 py-1 rounded-full mb-3">경영컨설팅</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/deficit-corporation-consulting.html" class="hover:text-secondary transition">3년 연속 결손 법인, 매출 확대와 현금흐름 관리로 돌파하기</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">매출을 올리고 자산을 늘려보이는 것이 핵심. AI 마케팅 강화, 신규 사업 발굴, 영업이익과 현금유동성 집중 관리 전략을 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">매출을 올리고 자산을 늘려보이는 것이 핵심. AI 마케팅 강화, 신규 사업 발굴, 영업이익과 현금유동성 집중 관리 전략을 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.25</span>
-                        <a href="blog/deficit-corporation-consulting.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/deficit-corporation-consulting.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post: 미처분이익잉여금 청산 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-emerald-400/60">receipt_long</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/retained-earnings-liquidation.html" class="hover:text-primary transition">미처분이익잉여금 7억, 법인 청산하면 세금 얼마나 낼까?</a>
+                    <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-3 py-1 rounded-full mb-3">법인세무</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/retained-earnings-liquidation.html" class="hover:text-secondary transition">미처분이익잉여금 7억, 법인 청산하면 세금 얼마나 낼까?</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">7억 원 이상 쌓인 미처분이익잉여금, 한 번에 청산하면 3억 원 이상 세금이 나옵니다. 절세 전략과 소요 기간을 알아봅니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">7억 원 이상 쌓인 미처분이익잉여금, 한 번에 청산하면 3억 원 이상 세금이 나옵니다. 절세 전략과 소요 기간을 알아봅니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.22</span>
-                        <a href="blog/retained-earnings-liquidation.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/retained-earnings-liquidation.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post 1: EAP 가이드 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-orange-400/60">favorite</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-orange-100 text-orange-600 text-xs font-medium px-3 py-1 rounded-full mb-3">EAP</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/eap-guide.html" class="hover:text-primary transition">EAP(직원지원프로그램)란? 도입 효과와 방법</a>
+                    <span class="inline-block bg-orange-500/10 text-orange-400 text-xs font-medium px-3 py-1 rounded-full mb-3">EAP</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/eap-guide.html" class="hover:text-secondary transition">EAP(직원지원프로그램)란? 도입 효과와 방법</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">직원의 정신건강과 업무 효율을 높이는 EAP 프로그램. 도입 효과, 비용, 운영 방법까지 상세히 알아봅니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">직원의 정신건강과 업무 효율을 높이는 EAP 프로그램. 도입 효과, 비용, 운영 방법까지 상세히 알아봅니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.06</span>
-                        <a href="blog/eap-guide.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/eap-guide.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post 2: 정부지원사업 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-blue-400/60">policy</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-blue-100 text-blue-600 text-xs font-medium px-3 py-1 rounded-full mb-3">정부지원</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/government-support-guide.html" class="hover:text-primary transition">2026년 정부지원사업 신청 가이드</a>
+                    <span class="inline-block bg-blue-500/10 text-blue-400 text-xs font-medium px-3 py-1 rounded-full mb-3">정부지원</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/government-support-guide.html" class="hover:text-secondary transition">2026년 정부지원사업 신청 가이드</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">스타트업과 중소기업이 활용할 수 있는 주요 정부지원사업과 신청 방법, 선정 노하우를 정리했습니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">스타트업과 중소기업이 활용할 수 있는 주요 정부지원사업과 신청 방법, 선정 노하우를 정리했습니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.06</span>
-                        <a href="blog/government-support-guide.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/government-support-guide.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
 
             <!-- Post 3: 벤처인증 -->
-            <article class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg">
-                <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                    </svg>
+            <article class="group bg-surface-dark rounded-2xl overflow-hidden border border-border-dark hover:border-secondary/30 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-indigo-400/60">trending_up</span>
                 </div>
                 <div class="p-6">
-                    <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full mb-3">벤처인증</span>
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">
-                        <a href="blog/venture-certification.html" class="hover:text-primary transition">벤처기업 인증 절차와 혜택 총정리</a>
+                    <span class="inline-block bg-indigo-500/10 text-indigo-400 text-xs font-medium px-3 py-1 rounded-full mb-3">벤처인증</span>
+                    <h2 class="text-xl font-bold text-white mb-3">
+                        <a href="blog/venture-certification.html" class="hover:text-secondary transition">벤처기업 인증 절차와 혜택 총정리</a>
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">벤처기업 인증을 받으면 세제 혜택, 금융 지원, 입찰 가산점 등 다양한 혜택이 있습니다. 인증 유형별 요건과 절차를 안내합니다.</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-3">벤처기업 인증을 받으면 세제 혜택, 금융 지원, 입찰 가산점 등 다양한 혜택이 있습니다. 인증 유형별 요건과 절차를 안내합니다.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
                         <span>2026.01.06</span>
-                        <a href="blog/venture-certification.html" class="text-primary font-medium hover:underline">자세히 보기 →</a>
+                        <a href="blog/venture-certification.html" class="text-secondary font-medium hover:underline flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
                 </div>
             </article>
@@ -598,22 +554,23 @@
     </main>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-gray-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="py-16 bg-secondary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 class="text-3xl font-bold text-white mb-4">전문가와 상담하세요</h2>
-            <p class="text-gray-400 text-lg mb-8">블로그 내용이나 서비스에 대해 궁금하신 점이 있으시면 문의해주세요.</p>
-            <a href="/#contact" class="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent/90 transition text-lg">
+            <p class="text-white/80 text-lg mb-8">블로그 내용이나 서비스에 대해 궁금하신 점이 있으시면 문의해주세요.</p>
+            <a href="/#contact" class="inline-block bg-white text-secondary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">
                 무료 상담 신청하기
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer class="bg-background-dark border-t border-border-dark text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <div class="flex items-center justify-center space-x-3 mb-4">
-                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto bg-white rounded-lg p-1">
+                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto rounded">
                     <span class="text-white text-xl font-bold">Momentum Biz</span>
                 </div>
                 <p class="text-sm mb-4">잠재력을 발견하고 성장을 설계합니다.</p>

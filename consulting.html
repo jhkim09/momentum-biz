@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="dark" lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +7,19 @@
     <meta name="description" content="전문 컨설턴트가 작성하는 맞춤형 경영분석 보고서. AI 기반 경영 진단 및 전략 제안.">
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
                         primary: '#1e3a5f',
                         secondary: '#3b82f6',
                         accent: '#06b6d4',
+                        'background-dark': '#121416',
+                        'surface-dark': '#1e2124',
+                        'border-dark': '#2c3035',
                     }
                 }
             }
@@ -25,7 +29,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
@@ -36,83 +43,81 @@
 
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-background-dark text-gray-100 font-sans antialiased overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="/" class="flex items-center space-x-2">
-                    <img src="images/logo.jpg" alt="Momentum Biz 로고" class="h-10 w-auto">
-                    <span class="text-2xl font-bold text-primary">Momentum Biz</span>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-background-dark/90 backdrop-blur-md border-b border-border-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="images/logo.jpg" alt="Momentum Biz" class="h-10 w-auto rounded">
+                    <span class="text-xl font-bold text-white">Momentum Biz</span>
                 </a>
-
-                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-                    <a href="/#services" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">서비스</a>
-                    <a href="/#about" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">회사소개</a>
-                    <a href="membership.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">파트너 멤버십</a>
-                    <a href="blog.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">블로그</a>
-                    <a href="faq.html" class="text-gray-600 hover:text-primary transition text-sm lg:text-base">FAQ</a>
-                    <a href="/#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition text-sm lg:text-base">무료 진단 신청</a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="/" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">홈</a>
+                    <a href="/#services" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">서비스</a>
+                    <a href="membership.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">파트너 멤버십</a>
+                    <a href="blog.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">블로그</a>
+                    <a href="faq.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="/#contact" class="bg-secondary hover:bg-secondary/90 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all shadow-sm hidden sm:block">무료 진단 신청</a>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white">
+                        <span class="material-symbols-outlined text-2xl">menu</span>
+                    </button>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-1">
-                <a href="/#services" class="block py-2 text-gray-600 hover:text-primary">서비스</a>
-                <a href="/#about" class="block py-2 text-gray-600 hover:text-primary">회사소개</a>
-                <a href="membership.html" class="block py-2 text-gray-600 hover:text-primary">파트너 멤버십</a>
-                <a href="blog.html" class="block py-2 text-gray-600 hover:text-primary">블로그</a>
-                <a href="faq.html" class="block py-2 text-gray-600 hover:text-primary">FAQ</a>
-                <a href="/#contact" class="block py-2 text-primary font-medium">무료 진단 신청</a>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-1 border-t border-border-dark pt-3">
+                <a href="/" class="block py-2 text-gray-400 hover:text-white transition-colors">홈</a>
+                <a href="/#services" class="block py-2 text-gray-400 hover:text-white transition-colors">서비스</a>
+                <a href="membership.html" class="block py-2 text-gray-400 hover:text-white transition-colors">파트너 멤버십</a>
+                <a href="blog.html" class="block py-2 text-gray-400 hover:text-white transition-colors">블로그</a>
+                <a href="faq.html" class="block py-2 text-gray-400 hover:text-white transition-colors">FAQ</a>
+                <a href="/#contact" class="block py-2 text-secondary font-medium">무료 진단 신청</a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="pt-24 pb-16">
+    <main class="pt-12 pb-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- 로그인 전: 소개 + Google 로그인 -->
             <section id="login-section">
                 <!-- 소개 헤더 -->
                 <div class="text-center mb-10">
-                    <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4">경영컨설팅 보고서</h1>
-                    <p class="text-gray-600 text-lg">전문 컨설턴트가 작성하는 맞춤형 경영분석 보고서</p>
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">경영컨설팅 보고서</h1>
+                    <p class="text-gray-400 text-lg">전문 컨설턴트가 작성하는 맞춤형 경영분석 보고서</p>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-lg mx-auto">
+                <div class="bg-surface-dark rounded-2xl border border-border-dark p-8 md:p-12 max-w-lg mx-auto">
                     <div class="text-center mb-8">
-                        <div class="inline-block bg-gradient-to-r from-primary to-secondary text-white text-3xl font-bold px-6 py-3 rounded-xl mb-6">
+                        <div class="inline-block bg-gradient-to-r from-secondary to-accent text-white text-3xl font-bold px-6 py-3 rounded-xl mb-6">
                             $5 <span class="text-lg font-normal opacity-80">/건</span>
                         </div>
                     </div>
 
-                    <ul class="space-y-3 mb-8 text-gray-700">
+                    <ul class="space-y-3 mb-8 text-gray-300">
                         <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="material-symbols-outlined text-green-400 mr-3 flex-shrink-0 text-xl">check_circle</span>
                             기업 현황 분석 및 진단
                         </li>
                         <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="material-symbols-outlined text-green-400 mr-3 flex-shrink-0 text-xl">check_circle</span>
                             경영 전략 제안
                         </li>
                         <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="material-symbols-outlined text-green-400 mr-3 flex-shrink-0 text-xl">check_circle</span>
                             재무 분석 리포트
                         </li>
                         <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="material-symbols-outlined text-green-400 mr-3 flex-shrink-0 text-xl">check_circle</span>
                             AI 기반 맞춤 솔루션
                         </li>
                     </ul>
 
-                    <button onclick="handleGoogleLogin()" class="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 hover:border-primary hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-xl transition">
+                    <button onclick="handleGoogleLogin()" class="w-full flex items-center justify-center gap-3 bg-surface-dark border-2 border-border-dark hover:border-secondary text-gray-200 font-medium py-3 px-6 rounded-xl transition">
                         <svg viewBox="0 0 24 24" width="20" height="20">
                             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
                             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -127,48 +132,48 @@
             <!-- 로그인 후: 결제 폼 -->
             <section id="payment-section" class="hidden">
                 <!-- 사용자 정보 바 -->
-                <div id="user-info" class="flex items-center justify-between bg-white rounded-xl shadow-sm px-6 py-3 mb-8">
+                <div id="user-info" class="flex items-center justify-between bg-surface-dark rounded-xl border border-border-dark px-6 py-3 mb-8">
                     <div class="flex items-center gap-3">
                         <img id="user-avatar" src="" alt="avatar" class="w-10 h-10 rounded-full">
-                        <span id="user-name" class="font-medium text-gray-800"></span>
+                        <span id="user-name" class="font-medium text-white"></span>
                     </div>
-                    <button onclick="handleLogout()" class="text-sm text-gray-500 hover:text-red-500 transition">로그아웃</button>
+                    <button onclick="handleLogout()" class="text-sm text-gray-500 hover:text-red-400 transition">로그아웃</button>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-primary mb-2">보고서 신청</h2>
+                <div class="bg-surface-dark rounded-2xl border border-border-dark p-8">
+                    <h2 class="text-2xl font-bold text-white mb-2">보고서 신청</h2>
                     <p class="text-gray-500 mb-6">결제 전 아래 정보를 입력해주세요</p>
 
                     <div class="grid md:grid-cols-2 gap-4 mb-6">
                         <div>
-                            <label for="input-company" class="block text-sm font-medium text-gray-700 mb-1">회사명 *</label>
+                            <label for="input-company" class="block text-sm font-medium text-gray-300 mb-1">회사명 *</label>
                             <input type="text" id="input-company" placeholder="(주)회사명" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                                   class="w-full px-4 py-3 bg-background-dark border border-border-dark text-white placeholder-gray-600 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
                         </div>
                         <div>
-                            <label for="input-ceo" class="block text-sm font-medium text-gray-700 mb-1">대표자명 *</label>
+                            <label for="input-ceo" class="block text-sm font-medium text-gray-300 mb-1">대표자명 *</label>
                             <input type="text" id="input-ceo" placeholder="홍길동" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                                   class="w-full px-4 py-3 bg-background-dark border border-border-dark text-white placeholder-gray-600 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
                         </div>
                         <div>
-                            <label for="input-email" class="block text-sm font-medium text-gray-700 mb-1">이메일 *</label>
+                            <label for="input-email" class="block text-sm font-medium text-gray-300 mb-1">이메일 *</label>
                             <input type="email" id="input-email" placeholder="example@email.com" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                                   class="w-full px-4 py-3 bg-background-dark border border-border-dark text-white placeholder-gray-600 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
                         </div>
                         <div>
-                            <label for="input-phone" class="block text-sm font-medium text-gray-700 mb-1">휴대폰번호 *</label>
+                            <label for="input-phone" class="block text-sm font-medium text-gray-300 mb-1">휴대폰번호 *</label>
                             <input type="tel" id="input-phone" placeholder="010-1234-5678" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                                   class="w-full px-4 py-3 bg-background-dark border border-border-dark text-white placeholder-gray-600 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
                         </div>
                     </div>
 
                     <!-- 결제 요약 -->
-                    <div class="bg-gray-50 rounded-xl p-5 mb-6">
-                        <div class="flex justify-between text-gray-600 mb-2">
+                    <div class="bg-background-dark rounded-xl border border-border-dark p-5 mb-6">
+                        <div class="flex justify-between text-gray-400 mb-2">
                             <span>경영컨설팅 보고서</span>
                             <span>1건</span>
                         </div>
-                        <div class="flex justify-between text-lg font-bold text-primary border-t pt-3">
+                        <div class="flex justify-between text-lg font-bold text-white border-t border-border-dark pt-3">
                             <span>결제 금액</span>
                             <span>$5.00</span>
                         </div>
@@ -177,46 +182,44 @@
                     <!-- 결제 버튼 영역 (가로 배치) -->
                     <div class="grid md:grid-cols-2 gap-4">
                         <!-- 해외 결제 (PayPal) -->
-                        <div class="border border-gray-200 rounded-xl p-5">
+                        <div class="border border-border-dark rounded-xl p-5">
                             <div class="mb-3">
-                                <span class="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded">해외 결제 (PayPal)</span>
-                                <p class="text-gray-400 text-xs mt-1">For International Users</p>
+                                <span class="inline-block bg-secondary text-white text-xs font-bold px-3 py-1 rounded">해외 결제 (PayPal)</span>
+                                <p class="text-gray-500 text-xs mt-1">For International Users</p>
                             </div>
                             <div id="paypal-button-container">
-                                <p class="text-center text-gray-400 py-5">PayPal 결제 버튼 로딩 중...</p>
+                                <p class="text-center text-gray-500 py-5">PayPal 결제 버튼 로딩 중...</p>
                             </div>
                         </div>
 
                         <!-- 한국 사용자 결제 -->
-                        <div class="border border-gray-200 rounded-xl p-5 flex flex-col">
+                        <div class="border border-border-dark rounded-xl p-5 flex flex-col">
                             <div class="mb-3">
-                                <span class="inline-block bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded">한국 사용자 결제</span>
-                                <p class="text-gray-400 text-xs mt-1">신용카드 / 계좌이체 / 간편결제</p>
+                                <span class="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 rounded">한국 사용자 결제</span>
+                                <p class="text-gray-500 text-xs mt-1">신용카드 / 계좌이체 / 간편결제</p>
                             </div>
                             <div class="flex-1 flex items-center">
                                 <button onclick="handleKrPayment()"
-                                   class="block w-full text-center bg-gray-900 hover:bg-gray-700 text-white font-bold py-4 rounded-xl transition text-lg cursor-pointer border-none">
+                                   class="block w-full text-center bg-white/10 hover:bg-white/20 text-white font-bold py-4 rounded-xl transition text-lg cursor-pointer border border-border-dark">
                                     국내 결제로 이동하기 →
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <p id="payment-error" class="text-red-500 text-sm text-center mt-2 hidden"></p>
+                    <p id="payment-error" class="text-red-400 text-sm text-center mt-2 hidden"></p>
                 </div>
             </section>
 
             <!-- 결제 완료 -->
             <section id="complete-section" class="hidden">
-                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center max-w-lg mx-auto">
-                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                        </svg>
+                <div class="bg-surface-dark rounded-2xl border border-border-dark p-8 md:p-12 text-center max-w-lg mx-auto">
+                    <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="material-symbols-outlined text-green-400 text-5xl">check_circle</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-primary mb-2">결제가 완료되었습니다!</h2>
-                    <p class="text-gray-500 mb-6">경영컨설팅 보고서가 곧 준비됩니다.</p>
-                    <div id="receipt-info" class="text-left bg-gray-50 rounded-xl p-5 mb-6 text-sm text-gray-700 space-y-1"></div>
-                    <button onclick="resetToPayment()" class="bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary/90 transition font-medium">
+                    <h2 class="text-2xl font-bold text-white mb-2">결제가 완료되었습니다!</h2>
+                    <p class="text-gray-400 mb-6">경영컨설팅 보고서가 곧 준비됩니다.</p>
+                    <div id="receipt-info" class="text-left bg-background-dark rounded-xl border border-border-dark p-5 mb-6 text-sm text-gray-300 space-y-1"></div>
+                    <button onclick="resetToPayment()" class="bg-secondary text-white px-8 py-3 rounded-xl hover:bg-secondary/90 transition font-medium">
                         추가 신청하기
                     </button>
                 </div>
@@ -226,8 +229,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="gradient-bg text-gray-300 py-10">
-        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+    <footer class="bg-surface-dark border-t border-border-dark py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
             <p>&copy; 2024 Momentum Biz (에이룬컴퍼니). All rights reserved.</p>
         </div>
     </footer>
@@ -363,7 +366,7 @@
     function renderPayPalButton() {
         if (typeof paypal === "undefined") {
             document.getElementById("paypal-button-container").innerHTML =
-                '<p class="text-center text-red-500 py-4">PayPal SDK 로드 실패 - 새로고침 해주세요</p>';
+                '<p class="text-center text-red-400 py-4">PayPal SDK 로드 실패 - 새로고침 해주세요</p>';
             return;
         }
         paypal.Buttons({
