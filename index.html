@@ -727,11 +727,14 @@
         }
     });
 
-    // Kakao Channel URL
+    // Kakao Channel URL with source tracking
     fetch('/api/config')
         .then(r => r.json())
         .then(config => {
-            if (config.kakaoChannelUrl) document.getElementById('kakao-btn').href = config.kakaoChannelUrl;
+            if (config.kakaoChannelUrl) {
+                const url = config.kakaoChannelUrl + (config.kakaoChannelUrl.includes('?') ? '&' : '?') + 'ref=main';
+                document.getElementById('kakao-btn').href = url;
+            }
         })
         .catch(() => {});
 </script>

@@ -652,21 +652,25 @@
         }
     });
 
-    // Kakao Channel URL
+    // Kakao Channel URL with source tracking
     let kakaoUrl = '';
     fetch('/api/config').then(r => r.json()).then(config => {
         if (config.kakaoChannelUrl) {
             kakaoUrl = config.kakaoChannelUrl;
-            document.getElementById('kakao-btn').href = kakaoUrl;
+            const floatUrl = kakaoUrl + (kakaoUrl.includes('?') ? '&' : '?') + 'ref=membership';
+            document.getElementById('kakao-btn').href = floatUrl;
         }
     }).catch(() => {});
 
-    // 멤버십 플랜 버튼 → 카카오톡 상담 연결
+    // 멤버십 플랜 버튼 → 카카오톡 상담 연결 (플랜명 포함)
     document.querySelectorAll('.kakao-plan-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
+            const plan = this.dataset.plan || '';
             if (kakaoUrl) {
-                window.open(kakaoUrl, '_blank');
+                const planRef = 'membership-' + plan.replace(/[^a-zA-Z가-힣0-9]/g, '');
+                const url = kakaoUrl + (kakaoUrl.includes('?') ? '&' : '?') + 'ref=' + encodeURIComponent(planRef);
+                window.open(url, '_blank');
             } else {
                 alert('카카오톡 상담 채널 준비 중입니다. 하단 문의 폼을 이용해주세요.');
                 document.getElementById('membership-contact').scrollIntoView({ behavior: 'smooth' });
