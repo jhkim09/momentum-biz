@@ -416,9 +416,13 @@
     // ============================================
     const KR_PAY_URL = 'https://mmtum.shop/pc/item/item-view.html?bmain=view&mode=2&uid=27&depth1=16&depth2=20&page=1&search=';
 
-    async function handleKrPayment() {
+    function handleKrPayment() {
         if (!validateForm()) return;
 
+        // 팝업 차단 방지: 사용자 클릭 이벤트 내에서 즉시 window.open
+        window.open(KR_PAY_URL, '_blank');
+
+        // 알림은 비동기로 백그라운드 전송 (결제 페이지 이동에 영향 없음)
         const payload = {
             type: '국내결제_신청',
             company: inputCompany.value.trim(),
@@ -430,17 +434,11 @@
             timestamp: new Date().toISOString(),
         };
 
-        try {
-            await fetch('/api/kr-payment-notify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-            });
-        } catch (e) {
-            console.error('웹훅 전송 실패:', e);
-        }
-
-        window.open(KR_PAY_URL, '_blank');
+        fetch('/api/kr-payment-notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        }).catch(e => console.error('알림 전송 실패:', e));
     }
 
     // ============================================
