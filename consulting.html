@@ -73,45 +73,42 @@
 <body class="bg-background-dark text-gray-100 font-sans antialiased overflow-x-hidden">
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full bg-background-dark/90 backdrop-blur-md border-b border-border-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="/" class="flex items-center gap-2">
-                    <img src="images/logo.jpg" alt="Momentum Biz" class="h-10 w-auto rounded">
-                    <span class="text-xl font-bold text-white">Momentum Biz</span>
-                </a>
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="/" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">홈</a>
-                    <a href="/#services" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">서비스</a>
-                    <a href="consulting.html" class="text-sm font-medium text-white transition-colors">경영분석 보고서</a>
-                    <a href="membership.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">파트너 멤버십</a>
-                    <a href="blog.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">블로그</a>
-                    <a href="faq.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">FAQ</a>
-                </nav>
-                <div class="flex items-center gap-4">
-                    <a href="/#contact" class="bg-secondary hover:bg-secondary/90 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all shadow-sm hidden sm:block">무료 진단 신청</a>
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white">
-                        <span class="material-symbols-outlined text-2xl">menu</span>
-                    </button>
-                </div>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-1 border-t border-border-dark pt-3">
-                <a href="/" class="block py-2 text-gray-400 hover:text-white transition-colors">홈</a>
-                <a href="/#services" class="block py-2 text-gray-400 hover:text-white transition-colors">서비스</a>
-                <a href="consulting.html" class="block py-2 text-white font-medium transition-colors">경영분석 보고서</a>
-                <a href="membership.html" class="block py-2 text-gray-400 hover:text-white transition-colors">파트너 멤버십</a>
-                <a href="blog.html" class="block py-2 text-gray-400 hover:text-white transition-colors">블로그</a>
-                <a href="faq.html" class="block py-2 text-gray-400 hover:text-white transition-colors">FAQ</a>
-                <a href="/#contact" class="block py-2 text-secondary font-medium">무료 진단 신청</a>
-            </div>
-        </div>
+    <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-border-dark bg-background-dark/95 backdrop-blur-sm px-4 sm:px-6 py-4 lg:px-40">
+        <a href="/" class="flex items-center gap-3 text-white">
+            <img src="images/logo.jpg" alt="Momentum Biz" class="h-9 w-auto rounded-lg">
+            <h2 class="text-white text-xl font-bold leading-tight tracking-tight">Momentum Biz</h2>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+            <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="/">홈</a>
+            <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="/#services">서비스</a>
+            <a class="text-white text-sm font-medium transition-colors" href="consulting.html">경영분석 보고서</a>
+            <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="/#about">회사소개</a>
+            <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="membership.html">파트너 멤버십</a>
+            <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="blog.html">블로그</a>
+            <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="faq.html">FAQ</a>
+        </nav>
+        <a href="/#contact" class="hidden md:flex items-center justify-center rounded-lg bg-primary hover:bg-primary/90 transition-colors h-10 px-6 text-white text-sm font-bold">상담 신청</a>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
     </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-[65px] left-0 right-0 z-40 bg-background-dark/98 backdrop-blur-md border-b border-border-dark px-6 pb-6 pt-2 space-y-1">
+        <a href="/" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">홈</a>
+        <a href="/#services" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">서비스</a>
+        <a href="consulting.html" class="block py-3 text-white font-bold border-b border-border-dark">경영분석 보고서</a>
+        <a href="/#about" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">회사소개</a>
+        <a href="membership.html" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">파트너 멤버십</a>
+        <a href="blog.html" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">블로그</a>
+        <a href="faq.html" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">FAQ</a>
+        <a href="/#contact" class="block py-3 text-accent font-bold">상담 신청</a>
+    </div>
 
-    <main class="pt-12 pb-16">
+    <main class="pt-20 pb-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- 소개 헤더 (컴팩트) -->
-            <section id="login-section" class="hidden"></section>
+
 
             <div class="text-center mb-6">
                 <h1 class="text-2xl md:text-3xl font-bold text-white mb-2">경영컨설팅 보고서</h1>
