@@ -8,6 +8,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(__dirname));
 
+// 관리자 인증 미들웨어
+const adminAuth = (req, res, next) => {
+  const token = req.headers['x-admin-token'] || req.query.token;
+  if (!token || token !== process.env.ADMIN_TOKEN) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  next();
+};
+
 // ============================================
 // PayPal 결제 API
 // ============================================
@@ -136,7 +145,7 @@ app.post("/api/capture-order", async (req, res) => {
 });
 
 // 결제 내역 조회
-app.get("/api/payments", (req, res) => {
+app.get("/api/payments", adminAuth, (req, res) => {
   const fs = require("fs");
   const logDir = path.join(__dirname, "payments");
   if (!fs.existsSync(logDir)) return res.json([]);

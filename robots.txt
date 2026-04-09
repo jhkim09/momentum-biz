@@ -3,6 +3,8 @@
 
 User-agent: *
 Allow: /
+Disallow: /stitch-landing.html
+Disallow: /stitch-membership.html
 
 # Sitemap location
 Sitemap: https://mmtum.co.kr/sitemap.xml
