@@ -88,6 +88,7 @@
         "sameAs": ["https://blog.naver.com/arune00"]
     }
     </script>
+    <style>body { opacity: 0; transition: opacity 0.22s ease; }</style>
 </head>
 <body class="bg-background-dark text-slate-100 antialiased overflow-x-hidden">
 <div class="flex min-h-screen w-full flex-col">
@@ -99,6 +100,7 @@
         <h2 class="text-white text-xl font-bold leading-tight tracking-tight">Momentum Biz</h2>
     </a>
     <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+        <a class="text-white text-sm font-medium transition-colors" href="/">홈</a>
         <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="#services">서비스</a>
         <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="consulting.html">경영분석 보고서</a>
         <a class="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="#about">회사소개</a>
@@ -113,6 +115,7 @@
 </header>
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden fixed top-[65px] left-0 right-0 z-40 bg-background-dark/98 backdrop-blur-md border-b border-border-dark px-6 pb-6 pt-2 space-y-1">
+    <a href="/" class="block py-3 text-white font-bold border-b border-border-dark">홈</a>
     <a href="#services" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">서비스</a>
     <a href="consulting.html" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">경영분석 보고서</a>
     <a href="#about" class="block py-3 text-gray-300 hover:text-white border-b border-border-dark">회사소개</a>
@@ -766,5 +769,6 @@
         })
         .catch(() => {});
 </script>
+<script src="js/page-transition.js"></script>
 </body>
 </html>

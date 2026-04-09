@@ -69,6 +69,7 @@
         .kakao-float:hover + .kakao-tooltip { opacity:1; }
         @media (max-width:768px) { .kakao-float{width:52px;height:52px;bottom:16px;right:16px;} .kakao-float svg{width:28px;height:28px;} .kakao-tooltip{bottom:76px;right:16px;} }
     </style>
+    <style>body { opacity: 0; transition: opacity 0.22s ease; }</style>
 </head>
 <body class="bg-background-dark text-gray-100 font-sans antialiased overflow-x-hidden">
 
@@ -474,5 +475,6 @@
             })
             .catch(() => {});
     </script>
+    <script src="js/page-transition.js"></script>
 </body>
 </html>
