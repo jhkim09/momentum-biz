@@ -15,54 +15,33 @@
     const STORAGE_KEY = 'mmtum_blog_auth';
     const AUTH_EXPIRY_HOURS = 24; // 인증 유효 시간
 
-    function getPassword() {
-        // 1순위: <html data-password="...">
-        const htmlPassword = document.documentElement.dataset.password;
-        if (htmlPassword) return htmlPassword;
-
-        // 2순위: <meta name="blog-password" content="...">
-        const metaPassword = document.querySelector('meta[name="blog-password"]');
-        if (metaPassword) return metaPassword.content;
-
-        return null; // 비밀번호 없으면 보호 안 함
+    function isProtected() {
+        // data-protected="true" 또는 data-password(레거시) 속성이 있으면 보호
+        return document.documentElement.dataset.protected === 'true'
+            || !!document.documentElement.dataset.password;
     }
 
-    function isAuthenticated(password) {
+    function isAuthenticated() {
         try {
             const stored = localStorage.getItem(STORAGE_KEY);
             if (!stored) return false;
-
-            const { hash, expiry } = JSON.parse(stored);
+            const { expiry } = JSON.parse(stored);
             if (Date.now() > expiry) {
                 localStorage.removeItem(STORAGE_KEY);
                 return false;
             }
-
-            return hash === simpleHash(password);
+            return true;
         } catch {
             return false;
         }
     }
 
-    function saveAuth(password) {
+    function saveAuth() {
         const expiry = Date.now() + (AUTH_EXPIRY_HOURS * 60 * 60 * 1000);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
-            hash: simpleHash(password),
-            expiry: expiry
-        }));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ expiry }));
     }
 
-    function simpleHash(str) {
-        let hash = 0;
-        for (let i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash = hash & hash;
-        }
-        return hash.toString(36);
-    }
-
-    function showPasswordModal(password) {
+    function showPasswordModal() {
         // 콘텐츠 숨기기
         document.body.style.visibility = 'hidden';
 
@@ -182,40 +161,44 @@
 
         input.focus();
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const entered = input.value.replace(/[^0-9]/g, ''); // 숫자만
+            const entered = input.value.replace(/[^0-9]/g, '');
 
-            if (entered === password) {
-                saveAuth(password);
-                overlay.remove();
-                style.remove();
-                document.body.style.visibility = 'visible';
-            } else {
-                error.textContent = '비밀번호가 올바르지 않습니다.';
-                input.value = '';
-                input.focus();
-                input.style.borderColor = '#ef4444';
-                setTimeout(() => {
-                    input.style.borderColor = '#e2e8f0';
-                }, 1000);
+            try {
+                const res = await fetch('/api/verify-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: entered })
+                });
+                if (res.ok) {
+                    saveAuth();
+                    overlay.remove();
+                    style.remove();
+                    document.body.style.visibility = 'visible';
+                } else {
+                    error.textContent = '비밀번호가 올바르지 않습니다.';
+                    input.value = '';
+                    input.focus();
+                    input.style.borderColor = '#ef4444';
+                    setTimeout(() => { input.style.borderColor = '#e2e8f0'; }, 1000);
+                }
+            } catch {
+                error.textContent = '서버 오류. 잠시 후 다시 시도해주세요.';
             }
         });
     }
 
     function initPasswordProtection() {
-        const password = getPassword();
-        if (!password) {
+        if (!isProtected()) {
             document.body.style.visibility = 'visible';
-            return; // 비밀번호 설정 안 됨 = 보호 안 함
+            return;
         }
-
-        if (isAuthenticated(password)) {
+        if (isAuthenticated()) {
             document.body.style.visibility = 'visible';
-            return; // 이미 인증됨
+            return;
         }
-
-        showPasswordModal(password);
+        showPasswordModal();
     }
 
     // 비밀번호 보호 먼저 실행

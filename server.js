@@ -175,6 +175,20 @@ app.post("/api/kr-payment-notify", async (req, res) => {
 });
 
 // ============================================
+// 블로그 비밀번호 검증
+// ============================================
+app.post("/api/verify-password", (req, res) => {
+  const { password } = req.body;
+  const correct = process.env.BLOG_PASSWORD;
+  if (!correct) return res.json({ ok: false, error: "not_configured" });
+  if (password === correct) {
+    res.json({ ok: true });
+  } else {
+    res.status(401).json({ ok: false });
+  }
+});
+
+// ============================================
 // 프론트엔드 공개 설정 API
 // ============================================
 app.get("/api/config", (req, res) => {
