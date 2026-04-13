@@ -166,10 +166,11 @@
             const entered = input.value.replace(/[^0-9]/g, '');
 
             try {
+                const expected = document.documentElement.dataset.password || '';
                 const res = await fetch('/api/verify-password', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ password: entered })
+                    body: JSON.stringify({ password: entered, expected })
                 });
                 if (res.ok) {
                     saveAuth();
