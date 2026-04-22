@@ -265,6 +265,26 @@
     const paymentError = document.getElementById("payment-error");
 
     // ============================================
+    // URL 쿼리스트링으로 전달받은 신청자 정보 자동 채우기
+    // (bizmaster.mmtum.co.kr 간편분석 → 상세 레포트 신청 플로우)
+    // ============================================
+    (function autofillFromQuery() {
+      try {
+        const p = new URLSearchParams(window.location.search);
+        const setIf = (el, val) => { if (el && val && !el.value) el.value = val; };
+        setIf(inputCompany, p.get('company'));
+        setIf(inputCeo, p.get('ceo'));
+        setIf(inputEmail, p.get('email'));
+        setIf(inputPhone, p.get('phone'));
+        // GA 이벤트 (소스 트래킹)
+        const source = p.get('source');
+        if (source && typeof gtag === 'function') {
+          gtag('event', 'consulting_autofill', { source });
+        }
+      } catch (e) { console.warn('쿼리스트링 자동입력 실패:', e); }
+    })();
+
+    // ============================================
     // Auth 상태 관리
     // ============================================
     let paypalRendered = false;
