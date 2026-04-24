@@ -106,22 +106,119 @@
     </div>
 
     <main class="pt-20 pb-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- 소개 헤더 (컴팩트) -->
-
-
-            <div class="text-center mb-6">
-                <h1 class="text-2xl md:text-3xl font-bold text-white mb-2">경영컨설팅 보고서</h1>
-                <div class="flex items-center justify-center gap-4 text-sm text-gray-400">
-                    <span>재무 분석</span>
-                    <span class="text-border-dark">|</span>
-                    <span>절세 전략</span>
-                    <span class="text-border-dark">|</span>
-                    <span>정부지원금 매칭</span>
-                    <span class="text-border-dark">|</span>
-                    <span>경영 솔루션</span>
+            <!-- 소개 헤더 -->
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">경영분석 보고서</h1>
+                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                    기업의 재무·세무·정책자금·보험 전략을 AI와 전문가가 함께 분석한 맞춤형 리포트를 제공합니다.
+                </p>
+                <div class="flex items-center justify-center gap-3 mt-4 text-xs text-gray-500 flex-wrap">
+                    <span class="px-3 py-1 rounded-full bg-surface-dark border border-border-dark">재무 스냅샷</span>
+                    <span class="px-3 py-1 rounded-full bg-surface-dark border border-border-dark">세액공제 진단</span>
+                    <span class="px-3 py-1 rounded-full bg-surface-dark border border-border-dark">정책자금 매칭</span>
+                    <span class="px-3 py-1 rounded-full bg-surface-dark border border-border-dark">법인보험 제안</span>
+                    <span class="px-3 py-1 rounded-full bg-surface-dark border border-border-dark">실행 액션 플랜</span>
                 </div>
+            </div>
+
+            <!-- 3 Tier 상품 비교 -->
+            <section class="mb-12">
+                <div class="grid md:grid-cols-3 gap-5">
+
+                    <!-- Tier 1: 무료 간편분석 -->
+                    <div class="bg-surface-dark rounded-2xl border border-border-dark p-6 flex flex-col">
+                        <div class="mb-4">
+                            <span class="inline-block text-xs font-bold text-gray-400 bg-white/5 border border-white/10 rounded-full px-3 py-1 mb-3">TIER 1</span>
+                            <h3 class="text-xl font-bold text-white mb-1">간편분석</h3>
+                            <p class="text-gray-500 text-sm">AI 경영 진단 1분 요약</p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-3xl font-bold text-white">무료</p>
+                            <p class="text-gray-500 text-xs mt-1">IP당 1일 5회 이용 가능</p>
+                        </div>
+                        <ul class="text-gray-300 text-sm space-y-2 mb-6 flex-grow">
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>기업정보 자동 조회</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>재무 스냅샷 + 파생지표</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>세액공제·정책자금 개요</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>법인보험 제안 요약</li>
+                            <li class="flex gap-2"><span class="text-gray-600 shrink-0">✗</span><span class="text-gray-500">심화 보고서 저장 불가</span></li>
+                        </ul>
+                        <a href="https://bizmaster.mmtum.co.kr" target="_blank"
+                           class="block text-center border border-border-dark hover:border-white text-white rounded-xl py-3 transition font-medium text-sm">
+                            BizMaster AI 바로 사용 →
+                        </a>
+                    </div>
+
+                    <!-- Tier 2: AI 심화 보고서 (추천) -->
+                    <div class="relative bg-gradient-to-br from-secondary/20 to-accent/10 rounded-2xl border-2 border-secondary p-6 flex flex-col md:-my-2">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase">추천</span>
+                        <div class="mb-4">
+                            <span class="inline-block text-xs font-bold text-secondary bg-secondary/15 border border-secondary/30 rounded-full px-3 py-1 mb-3">TIER 2</span>
+                            <h3 class="text-xl font-bold text-white mb-1">AI 심화 보고서</h3>
+                            <p class="text-gray-400 text-sm">PDF로 받는 자동 확장 리포트</p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-3xl font-bold text-white">₩7,500<span class="text-sm font-normal text-gray-400 ml-1">/ $5</span></p>
+                            <p class="text-gray-400 text-xs mt-1">결제 후 즉시 이메일 발송</p>
+                        </div>
+                        <ul class="text-gray-300 text-sm space-y-2 mb-6 flex-grow">
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>간편분석 + <strong class="text-white">5년치 재무 추이 분석</strong></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><strong class="text-white">세액공제·경정청구</strong> 근거·산정액 상세</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>정책자금 <strong class="text-white">4~5개 매칭 + 심사 유리 포인트</strong></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>잉여금·승계·보험 종합 전략</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>즉시 실행 액션 5+</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><strong class="text-white">PDF A4 약 8~12페이지</strong></li>
+                        </ul>
+                        <a href="#payment-section"
+                           class="block text-center bg-secondary hover:bg-secondary/90 text-white rounded-xl py-3 font-bold text-sm transition">
+                            결제하고 바로 받기 ↓
+                        </a>
+                    </div>
+
+                    <!-- Tier 3: 프리미엄 -->
+                    <div class="bg-surface-dark rounded-2xl border border-border-dark p-6 flex flex-col">
+                        <div class="mb-4">
+                            <span class="inline-block text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-400/30 rounded-full px-3 py-1 mb-3">TIER 3</span>
+                            <h3 class="text-xl font-bold text-white mb-1">프리미엄 컨설팅</h3>
+                            <p class="text-gray-500 text-sm">AI + 전문가 공동 작성 리포트</p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-3xl font-bold text-white">₩200,000</p>
+                            <p class="text-gray-500 text-xs mt-1">영업일 3~5일 소요</p>
+                        </div>
+                        <ul class="text-gray-300 text-sm space-y-2 mb-6 flex-grow">
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>Tier 2 전체 포함</li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><strong class="text-white">전문가 검토·보강</strong> (AI 단독 아님)</li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>기업 맞춤 <strong class="text-white">심층 분석</strong> (업종·조직 특수성 반영)</li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>정책자금·세액공제 <strong class="text-white">실행 단계별 가이드</strong></li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><strong class="text-white">PDF + PPT</strong> 양식 제공 (내부 보고용)</li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>30분 <strong class="text-white">화상 리뷰 미팅</strong> 1회 포함</li>
+                        </ul>
+                        <a href="mailto:admin@mmtum.co.kr?subject=[프리미엄 컨설팅 문의]&body=회사명:%0D%0A대표자명:%0D%0A연락처:%0D%0A이메일:%0D%0A진행 예상 시점:"
+                           class="block text-center bg-amber-500/90 hover:bg-amber-500 text-white rounded-xl py-3 font-bold text-sm transition">
+                            상담 신청하기 →
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- 부연 설명 -->
+                <div class="mt-8 bg-surface-dark/50 border border-border-dark rounded-xl p-5 text-sm text-gray-400 leading-relaxed">
+                    <p class="mb-2 text-white font-semibold">💡 어느 티어가 적합한가요?</p>
+                    <ul class="space-y-1.5">
+                        <li>• <strong class="text-gray-300">간편분석</strong>: 우리 회사 상태를 빠르게 훑어보고 싶은 경우</li>
+                        <li>• <strong class="text-gray-300">AI 심화 보고서</strong>: 자료 정리·내부 공유용 객관적 데이터 기반 리포트가 필요한 경우 <span class="text-secondary">(가장 많이 선택)</span></li>
+                        <li>• <strong class="text-gray-300">프리미엄 컨설팅</strong>: 투자 유치·세무 전략·가업승계 등 중요한 의사결정이 임박한 경우</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 결제 대상 표시 -->
+            <div class="mb-4 text-center">
+                <h2 class="text-xl font-bold text-white mb-1">AI 심화 보고서 결제</h2>
+                <p class="text-gray-500 text-sm">Tier 2 · ₩7,500 (국내) 또는 $5 (해외) · 결제 후 이메일로 즉시 발송</p>
             </div>
 
             <!-- 결제 폼 (항상 표시) -->
@@ -136,8 +233,8 @@
                 </div>
 
                 <div class="bg-surface-dark rounded-2xl border border-border-dark p-6 md:p-8">
-                    <h2 class="text-xl font-bold text-white mb-1">보고서 신청</h2>
-                    <p class="text-gray-500 text-sm mb-4">아래 정보를 입력 후 결제를 진행해주세요</p>
+                    <h3 class="text-base font-bold text-white mb-1">신청자 정보</h3>
+                    <p class="text-gray-500 text-xs mb-4">아래 정보를 입력 후 결제를 진행해주세요 · 보고서는 입력 이메일로 발송됩니다</p>
 
                     <div class="grid md:grid-cols-2 gap-3 mb-4">
                         <div>
@@ -217,6 +314,58 @@
                     <button onclick="resetToPayment()" class="bg-secondary text-white px-8 py-3 rounded-xl hover:bg-secondary/90 transition font-medium">
                         추가 신청하기
                     </button>
+                </div>
+            </section>
+
+            <!-- 자주 묻는 질문 -->
+            <section class="mt-16 max-w-3xl mx-auto">
+                <h2 class="text-xl font-bold text-white mb-6 text-center">자주 묻는 질문</h2>
+                <div class="space-y-3">
+                    <details class="bg-surface-dark rounded-xl border border-border-dark p-4 group">
+                        <summary class="cursor-pointer text-white font-medium text-sm flex justify-between items-center list-none">
+                            <span>무료 간편분석과 AI 심화 보고서는 뭐가 다른가요?</span>
+                            <span class="material-symbols-outlined text-gray-500 group-open:rotate-180 transition">expand_more</span>
+                        </summary>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                            간편분석은 웹에서 바로 확인하는 요약 진단이고(저장 불가), AI 심화 보고서는 <strong class="text-white">5년치 재무 추이·세액공제 산정액·정책자금 심사 유리 포인트 등</strong>을 포함한 PDF 리포트를 이메일로 받아보실 수 있습니다. 자료 정리·내부 공유·세무사 미팅 준비 등에 활용됩니다.
+                        </p>
+                    </details>
+                    <details class="bg-surface-dark rounded-xl border border-border-dark p-4 group">
+                        <summary class="cursor-pointer text-white font-medium text-sm flex justify-between items-center list-none">
+                            <span>AI 심화 보고서는 언제 받을 수 있나요?</span>
+                            <span class="material-symbols-outlined text-gray-500 group-open:rotate-180 transition">expand_more</span>
+                        </summary>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                            결제 완료 후 <strong class="text-white">즉시 자동 생성</strong>되어 입력하신 이메일로 발송됩니다. 평균 1~2분 이내 수신되며, 스팸함도 함께 확인해주세요. 미수신 시 <a href="mailto:admin@mmtum.co.kr" class="text-secondary hover:underline">admin@mmtum.co.kr</a>로 문의주시면 재발송해드립니다.
+                        </p>
+                    </details>
+                    <details class="bg-surface-dark rounded-xl border border-border-dark p-4 group">
+                        <summary class="cursor-pointer text-white font-medium text-sm flex justify-between items-center list-none">
+                            <span>프리미엄 컨설팅(₩200,000)은 어떻게 진행되나요?</span>
+                            <span class="material-symbols-outlined text-gray-500 group-open:rotate-180 transition">expand_more</span>
+                        </summary>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                            ① 상담 문의 접수 → ② 전문가 사전 분석 협의 → ③ <strong class="text-white">결제</strong> → ④ AI + 전문가 공동 작성(영업일 3~5일) → ⑤ PDF·PPT 발송 + 30분 화상 리뷰 미팅. 업종·조직 특수성을 반영한 맞춤 분석으로, 투자 유치·세무 전략·가업승계 등 중요한 의사결정에 활용하실 수 있습니다.
+                        </p>
+                    </details>
+                    <details class="bg-surface-dark rounded-xl border border-border-dark p-4 group">
+                        <summary class="cursor-pointer text-white font-medium text-sm flex justify-between items-center list-none">
+                            <span>환불은 가능한가요?</span>
+                            <span class="material-symbols-outlined text-gray-500 group-open:rotate-180 transition">expand_more</span>
+                        </summary>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                            서비스 제공 전(결제 직후~자동 발송 전)에는 전액 환불 가능합니다. AI 심화 보고서가 이미 발송된 이후에는 「전자상거래법 제17조」에 따라 원칙적으로 환불이 제한되나, 시스템 오류·보고서 품질 결함 등 명백한 사유가 있는 경우 전액 환불됩니다. 자세한 내용은 <a href="refund.html" class="text-secondary hover:underline">환불·해지정책</a>을 참고해주세요.
+                        </p>
+                    </details>
+                    <details class="bg-surface-dark rounded-xl border border-border-dark p-4 group">
+                        <summary class="cursor-pointer text-white font-medium text-sm flex justify-between items-center list-none">
+                            <span>어떤 기업에 도움이 되나요?</span>
+                            <span class="material-symbols-outlined text-gray-500 group-open:rotate-180 transition">expand_more</span>
+                        </summary>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                            법인사업자, 특히 <strong class="text-white">영업이익·잉여금이 누적되는 중소기업</strong>에 가장 유용합니다. 세액공제 경정청구·정책자금 매칭·미처분이익잉여금 환류 전략·법인보험 활용·가업승계 대비 등을 종합적으로 진단해드립니다. 개인사업자의 경우에도 기본 재무·세무 진단은 가능하지만, 법인 대상 서비스에 최적화되어 있습니다.
+                        </p>
+                    </details>
                 </div>
             </section>
 
