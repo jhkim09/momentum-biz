@@ -63,7 +63,7 @@
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; }
         /* 한글 단어 단위 줄바꿈 — 단어 중간 절단 방지 */
-        main p, main li, main h1, main h2, main h3, main summary, main span, main div.text-center > *, main .text-gray-300, main .text-gray-400, main .text-gray-500 { word-break: keep-all; overflow-wrap: anywhere; }
+        main p, main li, main h1, main h2, main h3, main summary, main div.text-center > *, main .text-gray-300, main .text-gray-400, main .text-gray-500 { word-break: keep-all; overflow-wrap: break-word; }
         .kakao-float { position:fixed; bottom:24px; right:24px; z-index:999; width:60px; height:60px; border-radius:50%; background:#FEE500; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,0.2); transition:transform 0.2s,box-shadow 0.2s; cursor:pointer; text-decoration:none; }
         .kakao-float:hover { transform:scale(1.1); box-shadow:0 6px 24px rgba(0,0,0,0.3); }
         .kakao-float svg { width:32px; height:32px; }
@@ -142,10 +142,10 @@
                             <p class="text-gray-500 text-xs mt-1">IP당 1일 5회 이용 가능</p>
                         </div>
                         <ul class="text-gray-300 text-sm space-y-2 mb-6 flex-grow">
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>기업정보 자동 조회</li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>재무 스냅샷 + 파생지표</li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>세액공제·정책자금 개요</li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>법인보험 제안 요약</li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>기업정보 자동 조회</span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>재무 스냅샷 + 파생지표</span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>세액공제·정책자금 개요</span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>법인보험 제안 요약</span></li>
                             <li class="flex gap-2"><span class="text-gray-600 shrink-0">✗</span><span class="text-gray-500">심화 보고서 저장 불가</span></li>
                         </ul>
                         <a href="https://bizmaster.mmtum.co.kr" target="_blank"
@@ -167,12 +167,12 @@
                             <p class="text-gray-400 text-xs mt-1">결제 후 즉시 이메일 발송</p>
                         </div>
                         <ul class="text-gray-300 text-sm space-y-2 mb-6 flex-grow">
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>간편분석 + <strong class="text-white">5년치 재무 추이 분석</strong></li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><strong class="text-white">세액공제·경정청구</strong> 근거·산정액 상세</li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>정책자금 <strong class="text-white">4~5개 매칭 + 심사 유리 포인트</strong></li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>잉여금·승계·보험 종합 전략</li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span>즉시 실행 액션 5+</li>
-                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><strong class="text-white">PDF A4 약 8~12페이지</strong></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>간편분석 + <strong class="text-white">5년치 재무 추이 분석</strong></span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span><strong class="text-white">세액공제·경정청구</strong> 근거·산정액 상세</span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>정책자금 <strong class="text-white">4~5개 매칭 + 심사 유리 포인트</strong></span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>잉여금·승계·보험 종합 전략</span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span>즉시 실행 액션 5+</span></li>
+                            <li class="flex gap-2"><span class="text-accent shrink-0">✓</span><span><strong class="text-white">PDF A4 약 8~12페이지</strong></span></li>
                         </ul>
                         <a href="#payment-section"
                            class="block text-center bg-secondary hover:bg-secondary/90 text-white rounded-xl py-3 font-bold text-sm transition">
@@ -192,12 +192,12 @@
                             <p class="text-gray-500 text-xs mt-1">영업일 3~5일 소요</p>
                         </div>
                         <ul class="text-gray-300 text-sm space-y-2 mb-6 flex-grow">
-                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>Tier 2 전체 포함</li>
-                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><strong class="text-white">전문가 검토·보강</strong> (AI 단독 아님)</li>
-                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>기업 맞춤 <strong class="text-white">심층 분석</strong> (업종·조직 특수성 반영)</li>
-                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>정책자금·세액공제 <strong class="text-white">실행 단계별 가이드</strong></li>
-                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><strong class="text-white">PDF + PPT</strong> 양식 제공 (내부 보고용)</li>
-                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span>30분 <strong class="text-white">화상 리뷰 미팅</strong> 1회 포함</li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span>Tier 2 전체 포함</span></li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span><strong class="text-white">전문가 검토·보강</strong> (AI 단독 아님)</span></li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span>기업 맞춤 <strong class="text-white">심층 분석</strong> (업종·조직 특수성 반영)</span></li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span>정책자금·세액공제 <strong class="text-white">실행 단계별 가이드</strong></span></li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span><strong class="text-white">PDF + PPT</strong> 양식 제공 (내부 보고용)</span></li>
+                            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span>30분 <strong class="text-white">화상 리뷰 미팅</strong> 1회 포함</span></li>
                         </ul>
                         <a id="premium-consult-btn" href="mailto:admin@mmtum.co.kr?subject=[프리미엄 컨설팅 문의]&body=회사명:%0D%0A대표자명:%0D%0A연락처:%0D%0A이메일:%0D%0A진행 예상 시점:"
                            target="_blank" rel="noopener"
