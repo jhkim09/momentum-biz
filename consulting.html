@@ -256,6 +256,11 @@
                             <label for="input-email" class="block text-sm font-medium text-gray-300 mb-1">이메일 *</label>
                             <input type="email" id="input-email" placeholder="example@email.com" required
                                    class="w-full px-4 py-3 bg-background-dark border border-border-dark text-white placeholder-gray-600 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition">
+                            <!-- 멤버십 배지 -->
+                            <div id="memberBadge" class="hidden mt-2 flex items-center gap-2 rounded-lg px-3 py-2 border" style="background:rgba(5,46,22,0.4);border-color:rgba(34,197,94,0.4);">
+                                <svg style="width:14px;height:14px;color:#4ade80;flex-shrink:0;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span id="memberBadgeText" style="color:#86efac;font-size:12px;font-weight:500;"></span>
+                            </div>
                         </div>
                         <div>
                             <label for="input-phone" class="block text-sm font-medium text-gray-300 mb-1">휴대폰번호 *</label>
@@ -638,6 +643,63 @@
     document.getElementById('mobile-menu-btn').addEventListener('click', () => {
         document.getElementById('mobile-menu').classList.toggle('hidden');
     });
+
+    // ============================================
+    // 멤버십 배지 — 이메일 입력 시 BizMaster SaaS API 조회
+    // ============================================
+    (function membershipBadge() {
+      const BIZMASTER_API = 'https://bizmaster-saas.onrender.com';
+      let memberTimer;
+
+      function planLabel(plan) {
+        return plan === 'premium' ? '프리미엄' : '스탠다드';
+      }
+
+      async function checkMembership(email) {
+        const badge    = document.getElementById('memberBadge');
+        const badgeText = document.getElementById('memberBadgeText');
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          badge.classList.add('hidden');
+          return;
+        }
+        try {
+          const r = await fetch(
+            `${BIZMASTER_API}/api/admin/members/${encodeURIComponent(email)}/check`,
+            { credentials: 'include' }
+          );
+          const j = await r.json();
+          if (j.ok && j.member) {
+            const m = j.member;
+            const plan = planLabel(m.plan);
+            const expiry = m.expires_at ? m.expires_at.slice(0, 10) : '-';
+            if (m.plan === 'premium' && m.remaining_premium > 0) {
+              badgeText.textContent = `멤버십 인식 — 무료 이용 가능 (AI 심화 잔여 ${m.remaining_ai}회)`;
+            } else if (m.plan === 'standard') {
+              badgeText.textContent = `멤버십 인식 — 50% 할인 · 카카오 상담 시 안내 / 만료 ${expiry}`;
+            } else {
+              badgeText.textContent = `${plan} 멤버십 인식 — AI 심화 잔여 ${m.remaining_ai}회 / 만료 ${expiry}`;
+            }
+            badge.classList.remove('hidden');
+          } else {
+            badge.classList.add('hidden');
+          }
+        } catch {
+          badge.classList.add('hidden');
+        }
+      }
+
+      // autofill된 이메일도 체크 (쿼리스트링 자동입력 후)
+      setTimeout(() => {
+        const emailEl = document.getElementById('input-email');
+        if (emailEl && emailEl.value) checkMembership(emailEl.value.trim());
+        if (emailEl) {
+          emailEl.addEventListener('input', () => {
+            clearTimeout(memberTimer);
+            memberTimer = setTimeout(() => checkMembership(emailEl.value.trim()), 500);
+          });
+        }
+      }, 300);
+    })();
     </script>
 
     <!-- Kakao Channel Floating Button -->
