@@ -179,10 +179,12 @@ app.post("/api/kr-payment-notify", async (req, res) => {
 // ============================================
 app.post("/api/verify-password", (req, res) => {
   const { password, expected } = req.body;
-  // 글별 비밀번호(data-password) 우선, 없으면 환경변수 폴백
+  const master = process.env.BLOG_MASTER_PASSWORD;
+  if (master && password === master) return res.json({ ok: true });
   const correct = expected || process.env.BLOG_PASSWORD;
   if (!correct) return res.json({ ok: false, error: "not_configured" });
-  if (password === correct) {
+  const normalized = (password || "").replace(/[^0-9]/g, "");
+  if (password === correct || (normalized && normalized === correct)) {
     res.json({ ok: true });
   } else {
     res.status(401).json({ ok: false });

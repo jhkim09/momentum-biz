@@ -53,7 +53,7 @@
                 <h2>보호된 콘텐츠</h2>
                 <p>이 글은 고객사 전용 콘텐츠입니다.<br>비밀번호를 입력해 주세요.</p>
                 <form id="pw-form">
-                    <input type="password" id="pw-input" placeholder="비밀번호 (사업자등록번호)" autocomplete="off">
+                    <input type="password" id="pw-input" placeholder="비밀번호 (사업자등록번호 또는 관리자)" autocomplete="off">
                     <button type="submit">확인</button>
                 </form>
                 <p id="pw-error" class="error"></p>
@@ -163,7 +163,7 @@
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const entered = input.value.replace(/[^0-9]/g, '');
+            const entered = input.value.trim();
 
             try {
                 const expected = document.documentElement.dataset.password || '';
